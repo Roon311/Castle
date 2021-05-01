@@ -1,6 +1,27 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   GUI.cpp
 C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\GUI\GUI.cpp(247,3): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  Enemy.cpp
+  Demo_Main.cpp
+  windowinput.cpp
+  mousequeue.cpp
+  keyqueue.cpp
+  image.cpp
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\image.cpp(115,29): warning C4018: '<': signed/unsigned mismatch
+  colors.cpp
+  CMUgraphics.cpp
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(751,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(1164,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(1171,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(1202,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(1210,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\CMUgraphicsLib\CMUgraphics.cpp(1357,23): warning C4018: '>': signed/unsigned mismatch
+  auxil.cpp
+  Castle.cpp
+  Battle.cpp
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\Battle.cpp(70,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\Battle.cpp(142,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
 cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   jutils.c
   jquant2.c

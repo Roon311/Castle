@@ -37,7 +37,7 @@ void Priority_queue<T>::push(T elemnt) {
 		front = newNode;
 		newNode->setNext(nullptr);
 	}
-	else{
+	else {
 		if (elemnt > front->getItem()) {
 			Node<T>* save = front;
 			front = newNode;
@@ -45,7 +45,7 @@ void Priority_queue<T>::push(T elemnt) {
 		}
 		else {
 			Node<T>* current = front->getNext();
-			while (current !=nullptr && current->getNext() != nullptr && elemnt < current->getItem() ) {
+			while (current != nullptr && current->getNext() != nullptr && elemnt < current->getItem()) {
 				current = current->getNext();
 			}
 			Node<T>* saveNext = current->getNext();
@@ -58,7 +58,7 @@ void Priority_queue<T>::push(T elemnt) {
 
 template < typename T>
 void Priority_queue<T>::pop() {
-	if (isEmpty()!=true) {
+	if (isEmpty() != true) {
 		Node<T>* savefront = front;
 		Node<T>* ptr = front->getNext();
 		front = ptr;

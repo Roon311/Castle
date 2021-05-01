@@ -3,7 +3,7 @@
 template < typename T>
 class Priority_queue
 {
-	Node<T> * front;
+	Node<T>* front;
 	int size;
 public:
 	Priority_queue();
