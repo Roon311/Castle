@@ -1,8 +1,8 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "Generic_DS\Node.h"
-//..\CIE205Project_Code_S2021\*/
+#include "..\CIE205Project_Code_S2021\Generic_DS\Node.h"
+
 template <typename T>
 class Stack
 {
@@ -12,7 +12,7 @@ private:
 public:
 	Stack();
 	~Stack();
-	 bool Isempty() const;
+	bool Isempty() const;
 	bool Push(const T& newItem);
 	bool Pop(T& TopItem);
 	bool Peek(T& TopItem) const;
@@ -43,7 +43,7 @@ bool  Stack<T>::Push(const T& newItem)
 		top = NewNodeptr; //case: this is the first node in the stack
 
 	else
-	top->setNext(NewNodeptr);
+		top->setNext(NewNodeptr);
 	top = NewNodeptr;
 	return true;
 }
@@ -60,6 +60,9 @@ bool  Stack<T>::Pop(T& TopItem)
 
 	if (top->getNext() != nullptr)
 		top = top->getNext();
+	else
+		top = nullptr;
+
 
 	if (DeletedNodeptr)
 		delete DeletedNodeptr;
@@ -73,8 +76,8 @@ bool  Stack<T>::Peek(T& TopItem) const
 		return false;
 
 	else
-     TopItem = top->getItem();
-	 return true;
+		TopItem = top->getItem();
+	return true;
 }
 
 template <typename T>
@@ -85,4 +88,5 @@ Stack<T>::~Stack()
 
 
 #endif // !STACK_H
+
 
