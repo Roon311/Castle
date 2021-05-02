@@ -125,7 +125,7 @@ void Battle::Parsing()
 
 void Battle::Killing(Enemy* killed) //omar adding
 {
-	//L_Killed.Add_End(killed);
+	L_Killed.InsertEnd(killed);
 }
 void Battle::Freezing(Enemy* Freezed) //omar adding
 {

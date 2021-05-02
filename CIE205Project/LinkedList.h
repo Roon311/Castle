@@ -2,8 +2,7 @@
 #include <iostream>
 #include "Node.h"
 using namespace std;
-template <typename T>
-class LinkedList
+template <class T> class LinkedList
 {
 private:
 	Node<T>* Head;	//Pointer to the head of the list

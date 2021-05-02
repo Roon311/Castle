@@ -4,6 +4,7 @@
 #include "Castle\Castle.h"
 #include "Generic_DS\Queue.h"
 #include "Generic_DS\Stack.h"
+#include"LinkedList.h"
 #include "GUI\GUI.h"
 // it is the controller of the project
 class Battle
@@ -25,7 +26,7 @@ private:
 	Stack<Enemy*> S_Healers;
 	Queue<Enemy*> Q_freezer;
 	Priority_queue<Enemy*> Q_fighters;
-	//LinkedList<Enemy*> L_Killed;     //when linked list created
+	LinkedList<Enemy*> L_Killed;     //when linked list created
 	Queue<Enemy*> Q_froozen;
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
