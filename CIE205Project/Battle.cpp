@@ -123,6 +123,19 @@ void Battle::Parsing()
 	}
 }
 
+void Battle::Killing(Enemy* killed) //omar adding
+{
+	//L_Killed.Add_End(killed);
+}
+void Battle::Freezing(Enemy* Freezed) //omar adding
+{
+	Q_froozen.enqueue(Freezed);
+}  
+void Battle::UnFreezing(Enemy* UnFreezed) //omar adding
+{
+	Q_froozen.dequeue(UnFreezed);
+} 
+
 void Battle::AddtoDemoList(Enemy* Ptr)
 {
 	DemoList[DemoListCount++] = Ptr;
@@ -249,7 +262,7 @@ void Battle::ActivateEnemies()
 		}
 		else if (pE->Get_Type() == 2)
 		{
-			Q_froozen.enqueue(pE);
+			Q_freezer.enqueue(pE);
 		}
 		AddtoDemoList(pE);		//move it to demo list (for demo purposes)
 	}

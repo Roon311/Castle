@@ -23,8 +23,10 @@ private:
 
 	Queue<Enemy*> Q_Inactive;		//Queue of inactive enemies
 	Stack<Enemy*> S_Healers;
-	Queue<Enemy*> Q_froozen;
+	Queue<Enemy*> Q_freezer;
 	Priority_queue<Enemy*> Q_fighters;
+	//LinkedList<Enemy*> L_Killed;     //when linked list created
+	Queue<Enemy*> Q_froozen;
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
@@ -44,12 +46,15 @@ public:
 	Castle* GetCastle();
 	void RunSimulation();
 	void ActivateEnemies();		//check the inactive list and activate all enemies that has arrived
-	void Battle::Parsing();
+	void Parsing();
+	void Killing(Enemy* killed);
+	void Freezing(Enemy* Freezed);
+	void UnFreezing(Enemy* UnFreezed);
 
 	void AddtoDemoList(Enemy* Ptr);		//Add Enemy to the demo queue of enemies (for demo purposes only)
 	void Just_A_Demo();	//just to show a demo and should be removed in phase1 1 & 2
 	void Demo_UpdateEnemies();	//Randomly update enemies distance/status (for demo purposes)
-
+	
 	//
 	// TODO: Add More Member Functions As Needed
 	//

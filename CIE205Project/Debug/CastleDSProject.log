@@ -1,9 +1,9 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Battle.cpp
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(181,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(266,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-  Compiling...
+  GUI.cpp
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\GUI\GUI.cpp(247,3): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   Demo_Main.cpp
+  Battle.cpp
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(194,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(279,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
   CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Debug\CastleDSProject.exe
