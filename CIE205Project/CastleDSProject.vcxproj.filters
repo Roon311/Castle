@@ -222,5 +222,8 @@
     <ClInclude Include="Generic_DS\Stack.h">
       <Filter>Generic_DS</Filter>
     </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

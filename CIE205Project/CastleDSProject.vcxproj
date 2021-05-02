@@ -301,6 +301,7 @@
     <ClInclude Include="Generic_DS\Queue.h" />
     <ClInclude Include="Generic_DS\Stack.h" />
     <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
