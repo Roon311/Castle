@@ -225,5 +225,8 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Generic_DS</Filter>
     </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

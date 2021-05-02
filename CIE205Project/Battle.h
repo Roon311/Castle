@@ -5,6 +5,7 @@
 #include "Generic_DS\Queue.h"
 #include "Generic_DS\Stack.h"
 #include"LinkedList.h"
+#include"PriorityQueue.h"
 #include "GUI\GUI.h"
 // it is the controller of the project
 class Battle
