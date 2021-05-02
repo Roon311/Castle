@@ -77,7 +77,6 @@ bool  Stack<T>::Peek(T& TopItem) const
 
 	else
 		TopItem = top->getItem();
-	cout << "The top item in the stack is:" << TopItem << endl;
 	return true;
 }
 
