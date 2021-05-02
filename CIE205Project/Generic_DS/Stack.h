@@ -1,8 +1,8 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "..\CIE205Project_Code_S2021\Generic_DS\Node.h"
-
+#include "Generic_DS\Node.h"
+//..\CIE205Project_Code_S2021\*/
 template <typename T>
 class Stack
 {

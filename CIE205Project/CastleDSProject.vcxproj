@@ -299,6 +299,7 @@
     <ClInclude Include="Enemies\Enemy.h" />
     <ClInclude Include="Generic_DS\Node.h" />
     <ClInclude Include="Generic_DS\Queue.h" />
+    <ClInclude Include="Generic_DS\Stack.h" />
     <ClInclude Include="GUI\GUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,12 +13,16 @@ protected:
 	const int ID;         //Each enemy has a unique ID (sequence number)
 	const int ArrvTime;	//arrival time (time it starts to join battle)
 
-	ENMY_STATUS status;	    //status of the enemy (inactive, inactive, frosted, killed)
+	ENMY_STATUS status;	    //status of the enemy (inactive, active, frosted, killed)
 	int Distance;	//Horizontal distance between enemy & the tower of its region
-	                //Always positive (ranges from 2 to 60)
+					//Always positive (ranges from 2 to 60)
 	double Health;	//Enemy health
-
 	
+	ENMY_TYPE TYPE; //omar adding
+	int Power; //omar adding
+	int Reload_Period;//omar adding
+	int Speed;//omar adding
+
 	//
 	// TODO: Add More Data Members As Needed
 	//
@@ -30,13 +34,23 @@ public:
 	int Enemy::GetID() const;
 	ENMY_STATUS GetStatus() const;
 	void SetStatus(ENMY_STATUS);
-	
+
 	void DecrementDist();
 
-	void SetDistance(int );
+	void SetDistance(int);
 	int GetDistance() const;
-
 	int GetArrvTime() const;
+
+	void Set_Health(int H); //omar adding
+	int Get_Health() const; //omar adding
+	void Set_Power(int POW); //omar adding
+	int Get_Power() const; //omar adding
+	void Set_Reload(int RLD); //omar adding
+	int Get_Reload() const; //omar adding
+	void Set_Speed(int SPD); //omar adding
+	int Get_Speed() const; //omar adding
+	void Set_Type(ENMY_TYPE TYPE); //omar adding
+	ENMY_TYPE Get_Type() const; //omar adding
 
 
 	// Virtual Functions: ----------------

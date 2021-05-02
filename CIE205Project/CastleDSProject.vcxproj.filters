@@ -219,5 +219,8 @@
     <ClInclude Include="Castle\Castle.h">
       <Filter>Castle</Filter>
     </ClInclude>
+    <ClInclude Include="Generic_DS\Stack.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
