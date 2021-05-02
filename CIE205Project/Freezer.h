@@ -1,6 +1,6 @@
 #pragma once
 #include "Enemies/Enemy.h"
-class Healer :
+class Freezer :
     public Enemy
 {
     void Move();

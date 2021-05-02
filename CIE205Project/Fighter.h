@@ -1,8 +1,9 @@
 #pragma once
 #include "Enemies/Enemy.h"
-class Healer :
+class Fighter :
     public Enemy
 {
+
     void Move();
 };
 
