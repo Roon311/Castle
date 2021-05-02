@@ -245,3 +245,4 @@ paket-files/
 *.sln.iml
 *.db
 *.log
+*.db

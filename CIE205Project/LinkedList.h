@@ -25,7 +25,7 @@ public:
 		Node<T>* temp = Head;
 		while (temp->getNext())
 		{
-
+			temp = temp->getNext();
 		}
 		temp->setNext(Noder);
 	}
