@@ -25,7 +25,7 @@ int Battle::getEDrawCount()
 //---------------------------------------------------------------------------------------------//
 void Battle::Parsing()
 {
-	ifstream finput("C:\\Users\\Omar El-Sakka\\Desktop\\Year2\\Semster2\\Data struct\\CIE205 Project\\text - Copy.txt");
+	ifstream finput("text - Copy.txt");
 	char* pch;
 	string CourseCode;
 	char* context = nullptr;
