@@ -11,7 +11,6 @@ Battle::Battle()
 	DemoListCount = 0;
 	CurrentTimeStep = 0;
 	pGUI = NULL;
-	Parsing();
 }
 //--------------------------------------------getters------------------------------------------// added by Nour
 int Battle::getCurrentTimeStep()
@@ -164,8 +163,8 @@ Castle* Battle::GetCastle()
 void Battle::RunSimulation()//starting the battle
 {
 	//bool flag = true;// added by Nour
-	
-	pGUI = new GUI;//create a new GUI with pGUI pointing to it 
+	Parsing();
+	pGUI = new GUI;//create a new GUI with pGUI pointing to it
 	PROG_MODE	mode = pGUI->getGUIMode();
 	//while (flag == true)//added by Nour
 	//{
