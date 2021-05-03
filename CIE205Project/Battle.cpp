@@ -96,7 +96,7 @@ void Battle::Parsing()
 				pch = strtok_s(NULL, " ", &context);
 				//cout << AT << " ";
 			}
-			Enemy enemy1(ID, AT, 60);  //torevise 
+			Enemy enemy1(ID, AT, MaxDistance);  //torevise 
 			enemy1.SetStatus(INAC);//
 
 			if (pch != NULL)
@@ -136,14 +136,14 @@ void Battle::Killing(Enemy* killed) //omar adding
 {
 	L_Killed.InsertEnd(killed);
 }
-void Battle::Freezing(Enemy* Freezed) //omar adding
+/*void Battle::Freezing(Enemy* Freezed) //omar adding
 {
 	Q_froozen.enqueue(Freezed);
 }  
 void Battle::UnFreezing(Enemy* UnFreezed) //omar adding
 {
 	Q_froozen.dequeue(UnFreezed);
-} 
+} */
 
 void Battle::AddtoDemoList(Enemy* Ptr)
 {

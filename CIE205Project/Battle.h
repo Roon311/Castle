@@ -30,8 +30,9 @@ private:
 	Queue<Enemy*> Q_freezers;
 	Priority_queue<Enemy*> Q_fighters;
 	LinkedList<Enemy*> L_Killed;     //when linked list created
-	Queue<Enemy*> Q_froozen;
-
+	Queue<Enemy*> Q_froozen_FR;
+	Queue<Enemy*> Q_froozen_FT;
+	Queue<Enemy*> Q_froozen_HL;
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
