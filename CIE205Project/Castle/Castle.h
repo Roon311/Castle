@@ -4,7 +4,7 @@ class Castle
 {
 	double Health;
 	double Power;//Omar adding
-	int Max_numofenemy;
+	int Max_enemyA_Time;
 	//
 	// TODO: Add More Data Members As Needed
 	//
