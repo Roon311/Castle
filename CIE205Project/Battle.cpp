@@ -286,7 +286,7 @@ void Battle::ActivateEnemies()
 		}
 		else if (pE->Get_Type() == 2)
 		{
-			Q_freezer.enqueue(pE);
+			Q_freezers.enqueue(pE);
 		}
 		AddtoDemoList(pE);		//move it to demo list (for demo purposes)
 	}

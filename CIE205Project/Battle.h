@@ -27,10 +27,11 @@ private:
 
 	Queue<Enemy*> Q_Inactive;		//Queue of inactive enemies
 	Stack<Enemy*> S_Healers;
-	Queue<Enemy*> Q_freezer;
+	Queue<Enemy*> Q_freezers;
 	Priority_queue<Enemy*> Q_fighters;
 	LinkedList<Enemy*> L_Killed;     //when linked list created
 	Queue<Enemy*> Q_froozen;
+
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
