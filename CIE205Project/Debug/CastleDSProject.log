@@ -1,3 +1,5 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Demo_Main.cpp
+  Battle.cpp
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\Battle.cpp(219,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\Battle.cpp(304,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   CastleDSProject.vcxproj -> C:\Users\ADMIN\Documents\GitHub\Castle\CIE205Project\Debug\CastleDSProject.exe

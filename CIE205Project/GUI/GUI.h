@@ -33,7 +33,7 @@ class GUI
 	};
 
 private:
-	window *pWind;
+	
 	color DrawingColors[ENMY_TYPE_CNT];	//drawing colors for enemies
 	
 	color BackgroundClr, StatusBarClr;	//Background and status bar color
@@ -89,11 +89,13 @@ private:
 	void ClearDrawingArea() const;	// clears the Drawing area from all drawings
 
 public:
+	window* pWind;//changed by Nour, made it public
 	GUI();
 	~GUI();
 
 	// Input Functions  ---------------------------
 	void waitForClick() const;	// waits a user click from the user
+
 	string GetString() const ; // reads a string (keyboard input) from the user
 
 	// Output Functions  ---------------------------

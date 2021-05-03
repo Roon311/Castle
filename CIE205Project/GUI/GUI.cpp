@@ -41,6 +41,7 @@ void GUI::waitForClick() const
 	int x,y;
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 string GUI::GetString() const 
 {

@@ -13,7 +13,17 @@ Battle::Battle()
 	pGUI = NULL;
 	Parsing();
 }
+//--------------------------------------------getters------------------------------------------// added by Nour
+int Battle::getCurrentTimeStep()
+{
+	return CurrentTimeStep;
+}
+int Battle::getEDrawCount()
+{
+	return  EDrawCount;
+}
 
+//---------------------------------------------------------------------------------------------//
 void Battle::Parsing()
 {
 	ifstream finput("C:\\Users\\Omar El-Sakka\\Desktop\\Year2\\Semster2\\Data struct\\CIE205 Project\\text - Copy.txt");
@@ -151,27 +161,42 @@ Castle* Battle::GetCastle()
 }
 
 
-void Battle::RunSimulation()
+void Battle::RunSimulation()//starting the battle
 {
-	pGUI = new GUI;
+	//bool flag = true;// added by Nour
+	
+	pGUI = new GUI;//create a new GUI with pGUI pointing to it 
 	PROG_MODE	mode = pGUI->getGUIMode();
+	//while (flag == true)//added by Nour
+	//{
+		//-------------------------------Added by Nour----------------------------------------//
+		char c = NULL;
+		keytype key = pGUI->pWind->GetKeyPress(c);
+		
+		if (key != 4)
+		{
+			//cout << "Lets Play" << endl; //for debugging 
+			#pragma comment(lib,"winmm.lib")
+			PlaySound("jujutsukaisen.wav", NULL, SND_ASYNC);
+		}
+		else { PlaySound("pszSound", NULL, SND_ASYNC); }
+		//------------------------------------------------------------------------------------//
+		switch (mode)	//Add a function for each mode in next phases
+		{
+		case MODE_INTR:
+			break;
+		case MODE_STEP:
+			break;
+		case MODE_SLNT:
+			break;
+		case MODE_DEMO:
+			Just_A_Demo();
 
-	switch (mode)	//Add a function for each mode in next phases
-	{
-	case MODE_INTR:
-		break;
-	case MODE_STEP:
-		break;
-	case MODE_SLNT:
-		break;
-	case MODE_DEMO:
-		Just_A_Demo();
-
+		}
+		delete pGUI;
 	}
 
-	delete pGUI;
-
-}
+//}
 
 
 //This is just a demo function for project introductory phase

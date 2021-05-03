@@ -246,3 +246,11 @@ paket-files/
 *.db
 *.log
 *.db
+*.pdb
+*.idb
+*.pdb
+*.ilk
+*.exe
+*.ipch
+*.bsc
+CIE205Project/.vs/CastleDSProject/v16/.suo
