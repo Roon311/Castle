@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Node.h"
+#include "Generic_DS/Node.h"
 using namespace std;
 template <class T> class LinkedList
 {
@@ -8,7 +8,7 @@ private:
 	Node<T>* Head;	//Pointer to the head of the list
 
 public:
-	
+
 	LinkedList()//default constructor 
 	{
 		Head = nullptr;
@@ -44,6 +44,24 @@ public:
 			delete Head;//delete the old head
 			Head = P;//set the head pointer to the next node
 		}
+	}
+	const T* toArray(int& count) {
+		count = 0;
+		if (Head == nullptr)
+			return nullptr;
+
+		Node<T>* p = Head;
+		while (p != nullptr) {
+			p = p->getNext();
+			++count;
+		}
+		T* array = new T[count];
+		p = Head;
+		for (int i = 0; i < count; i++) {
+			array[i] = p->getItem();
+			p = p->getNext();
+		}
+		return array;
 	}
 
 	~LinkedList()//destructor 
