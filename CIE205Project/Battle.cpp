@@ -88,7 +88,7 @@ void Battle::Parsing()
 		pch = strtok_s(line, " ", &context);
 		if (pch != NULL)
 		{
-			int EnemyCount = stoi(pch);
+			EnemyCount = stoi(pch);
 
 		}
 	}
@@ -122,48 +122,49 @@ void Battle::Parsing()
 				pch = strtok_s(NULL, " ", &context);
 				//cout << AT << " ";
 			}
-			Enemy enemy1(ID, AT, MaxDistance);  //torevise 
+			Enemy* enemy1 = new Enemy(ID, AT, MaxDistance);  //torevise
+
 			ENMY_TYPE TYP = static_cast<ENMY_TYPE>(TYP1);
-			enemy1.Set_Type(TYP);
-			enemy1.SetStatus(INAC);//
+
+			enemy1->Set_Type(TYP);
+			enemy1->SetStatus(INAC);//
 
 			if (pch != NULL)
 			{
 				int H = stoi(pch);;
 				pch = strtok_s(NULL, " ", &context);
-				enemy1.Set_Health(H);
-				enemy1.Set_Original_Health(H);
+				enemy1->Set_Health(H);
+				enemy1->Set_Original_Health(H);
 			}
 
 			if (pch != NULL)
 			{
 				int POW = stoi(pch);;
 				pch = strtok_s(NULL, " ", &context);
-				enemy1.Set_Power(POW);
+				enemy1->Set_Power(POW);
 			}
 
 			if (pch != NULL)
 			{
 				int RLD = stoi(pch);
 				pch = strtok_s(NULL, " ", &context);
-				enemy1.Set_Reload(RLD);
+				enemy1->Set_Reload(RLD);
 			}
 
 			if (pch != NULL)
 			{
 				int SPD = stoi(pch);;
 				pch = strtok_s(NULL, " ", &context);
-				enemy1.Set_Speed(SPD);
-			}
-			Enemy* eny = &enemy1;   //torevise 
-			Q_Inactive.enqueue(eny);
+				enemy1->Set_Speed(SPD);
+			} //torevise 
+			Q_Inactive.enqueue(enemy1);
 		}
 	}
 }
 
 void Battle::Killing(Enemy* killed) //omar adding
 {
-	L_Killed.InsertEnd(killed);
+	//L_Killed.InsertEnd(killed);
 }
 /*void Battle::Freezing(Enemy* Freezed) //omar adding
 {

@@ -35,10 +35,12 @@ private:
 	Stack<Healer*> S_Healers;
 	Queue<Freezer*> Q_freezers;
 	//Priority_queue<Fighter*> Q_fighters;   ///makes an error
-	LinkedList<Enemy*> L_Killed;     //when linked list created
-	Queue<Freezer*> Q_froozen_FR;
-	Queue<Fighter*> Q_froozen_FT;
-	Queue<Healer*> Q_froozen_HL;
+	LinkedList<Enemy*> L_Killed_Fighters; //by Rodina   
+	LinkedList<Enemy*> L_Killed_Healers;//by Rodina
+	LinkedList<Enemy*> L_Killed_Freezers;//by Rodina
+	Queue<Healer*> Q_frozen_Healers; //by Rodina
+	Queue<Freezer*> Q_frozen_freezers; //by Rodina
+	Queue<Fighter*> Q_frozen_fighters; //by Rodina
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
@@ -62,6 +64,7 @@ public:
 	void Killing(Enemy* killed);
 	void Freezing(Enemy* Freezed);
 	void UnFreezing(Enemy* UnFreezed);
+	void Freezing2ActiveEnemies();
 
 	void AddtoDemoList(Enemy* Ptr);		//Add Enemy to the demo queue of enemies (for demo purposes only)
 	void Just_A_Demo();	//just to show a demo and should be removed in phase1 1 & 2
