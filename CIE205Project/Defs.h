@@ -4,8 +4,8 @@
 #define MaxDistance  60         // the maximum distance between any enemy and castle
 #define MinDistance  2          // the minimum distance between any enemy and castle
 #define MaxVerticalEnemies  15   // the maximum number of enemies that can be drawn in one quarter (region)
-		                        // if they are in the same region and same distance
-								// (will be drawn vertical to each other)
+// if they are in the same region and same distance
+// (will be drawn vertical to each other)
 #define MaxEnemyCount 900       // the maximum number of enemies the application can work on
 
 
@@ -38,6 +38,3 @@ enum PROG_MODE	//mode of the program interface
 	MODE_DEMO,	//Demo mode (for introductory phase only, should be removed in phases 1&2)
 	MODE_CNT	//number of possible modes
 };
-
-
-

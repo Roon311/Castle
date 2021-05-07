@@ -13,7 +13,7 @@ Battle::Battle()
 	pGUI = NULL;
 }
 //--------------------------------------------getters------------------------------------------// added by Nour
-int Battle::getCurrentTimeStep()
+int Battle::getCurrentTimeStep()const
 {
 	return CurrentTimeStep;
 }
@@ -21,13 +21,38 @@ int Battle::getEDrawCount()
 {
 	return  EDrawCount;
 }
+bool Battle::getisModeSelected() const
+{
+	return isModeSelected;
+}
+int Battle::getEnemyCount() const
+{
+	return EnemyCount;
+}
+//--------------------------------------------Setters------------------------------------------// added by Nour
 
+void Battle::setisModeSelected(bool cond)
+{
+	isModeSelected = cond;
+}
+void Battle::setCurrentTimetep(int step)
+{
+	CurrentTimeStep = step;
+}
+void Battle::setEnemyCount(int count)
+{
+	EnemyCount = count;
+}
+//---------------------------------------------------------------------------------------------//
+void Battle::DrawEnemies(GUI* pGUI)
+{
+	//pGUI->DrawAllItems(BEnemiesForDraw, EnemyCount);
+}
 //---------------------------------------------------------------------------------------------//
 void Battle::Parsing()
 {
 	ifstream finput("text - Copy.txt");
 	char* pch;
-	string CourseCode;
 	char* context = nullptr;
 	const int size = 300;
 	char line[size];
@@ -73,8 +98,9 @@ void Battle::Parsing()
 		//Enemy enemy1(1,2,3);
 		if (finput.getline(line, size))
 		{
-			int ID, AT;
-			ENMY_TYPE TYP;
+			int ID{};
+			int AT{};
+			int TYP1;
 			pch = strtok_s(line, " ", &context);
 			if (pch != NULL)
 			{
@@ -85,7 +111,7 @@ void Battle::Parsing()
 
 			if (pch != NULL)
 			{
-				TYP = (ENMY_TYPE)stoi(pch);;
+				TYP1 = stoi(pch);;
 				pch = strtok_s(NULL, " ", &context);
 				//cout << TYP << " ";
 			}
@@ -97,6 +123,8 @@ void Battle::Parsing()
 				//cout << AT << " ";
 			}
 			Enemy enemy1(ID, AT, MaxDistance);  //torevise 
+			ENMY_TYPE TYP = static_cast<ENMY_TYPE>(TYP1);
+			enemy1.Set_Type(TYP);
 			enemy1.SetStatus(INAC);//
 
 			if (pch != NULL)
@@ -153,6 +181,14 @@ void Battle::AddtoDemoList(Enemy* Ptr)
 	// Note that this function doesn't allocate any enemy objects
 	// It just enqueue a pointer that is already allocated into the queue
 }
+void Battle::AddtoBEnemiesForDraw(Enemy* Ptr)//added by Nour
+{
+	if (EnemyCount < MaxEnemyCount)
+	{
+		BEnemiesForDraw[EnemyCount++] = Ptr;
+
+	}
+}
 
 
 Castle* Battle::GetCastle()
@@ -170,10 +206,9 @@ void Battle::RunSimulation()//starting the battle
 	//while (flag == true)//added by Nour
 	//{
 		//-------------------------------Added by Nour----------------------------------------//
-	char c = NULL;
-	keytype key = pGUI->pWind->GetKeyPress(c);
+	keytype key = pGUI->GetPress();
 
-	if (key != 4)
+	if (key != 2)
 	{
 		//cout << "Lets Play" << endl; //for debugging 
 #pragma comment(lib,"winmm.lib")
@@ -181,9 +216,11 @@ void Battle::RunSimulation()//starting the battle
 	}
 	else { PlaySound("pszSound", NULL, SND_ASYNC); }
 	//------------------------------------------------------------------------------------//
+	setisModeSelected(false);
 	switch (mode)	//Add a function for each mode in next phases
 	{
 	case MODE_INTR:
+		setisModeSelected(true);//added by Nour
 		InteractiveMode();//added by Nour
 		break;
 	case MODE_STEP:
@@ -194,8 +231,9 @@ void Battle::RunSimulation()//starting the battle
 		break;
 	case MODE_DEMO://to be removed "nour"
 		Just_A_Demo();
+		break;
 	}
-	delete pGUI;
+	delete pGUI;//deletes the interface 
 }
 
 //}
@@ -204,18 +242,37 @@ void Battle::InteractiveMode()//added by nour
 {
 	char c = NULL;
 	keytype key = pGUI->pWind->GetKeyPress(c);
-	CurrentTimeStep = 0;
-	while (key != 4)
+	key = pGUI->pWind->GetKeyPress(c);
+	cout << "key" << key << endl;
+	//keytype key = pGUI->GetPress();
+	setCurrentTimetep(0);
+	pGUI->UpdateInterface(CurrentTimeStep);
+	while ((key != ESCAPE) && (getisModeSelected() == true))
 	{
+		pGUI->pWind->FlushMouseQueue();//Needed to change pWind to public because of flushing issues 
 		key = pGUI->pWind->GetKeyPress(c);
-		int x = 0;
-		int y = 0;
-		pGUI->pWind->WaitMouseClick(x, y);	//check if click is inside the yellow box
-		pGUI->InDrawingArea(y);
-		CurrentTimeStep++;
-		pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
-		cout << CurrentTimeStep << endl;
+		if (key != 4)
+		{
+			pGUI->waitForClick();	//check if click is inside the yellow box
+
+			//if ((pGUI->InDrawingArea(y)) == true)// if we want to check in drawing area only
+			CurrentTimeStep++;
+			pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
+			cout << CurrentTimeStep << endl;
+			AddAllListsToDrawingList();
+			pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
+			while (KilledCount < EnemyCount)	//as long as some enemies are alive (should be updated in next phases)
+			{
+				ActivateEnemies();
+				UpdateEnemies();
+				pGUI->ResetDrawingList();
+				AddAllListsToDrawingList();
+				pGUI->UpdateInterface(CurrentTimeStep);
+			}
+			cout << "EnemyCount Exists and went to zero";
+		}
 	}
+	cout << "We are out" << endl;// for debugging 
 
 }
 void Battle::SilentMode()//added by nour
@@ -269,7 +326,7 @@ void Battle::Just_A_Demo()
 		pE->SetStatus(INAC); //initiall all enemies are inactive
 		Q_Inactive.enqueue(pE);		//Add created enemy to inactive Queue
 	}
-
+	//Q_Inactive;
 	AddAllListsToDrawingList();
 	pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
 
@@ -298,10 +355,52 @@ void Battle::AddAllListsToDrawingList()
 	for (int i = 0; i < InactiveCount; i++)
 		pGUI->AddToDrawingList(EnemyList[i]);
 
+	//-------------------------------added by Nour-------------------------------------//
+	int KilledCount;
+	Enemy* const* KilledList = L_Killed.toArray(KilledCount);
+	for (int i = 0; i < KilledCount; i++)
+		pGUI->AddToDrawingList(KilledList[i]);
+
+	int HealersCount;
+	Healer* const* HealersList = S_Healers.toArray(HealersCount);
+	for (int i = 0; i < HealersCount; i++)
+		pGUI->AddToDrawingList(HealersList[i]);
+
+	/*int FighterCount;
+	Fighter* const* FighterList = Q_fighters.toArray(FighterCount);
+	for (int i = 0; i < FighterCount; i++)
+		pGUI->AddToDrawingList(FighterList[i]);*/
+
+	int FreezersCount;
+	Freezer* const* FreezersList = Q_freezers.toArray(FreezersCount);
+	for (int i = 0; i < FreezersCount; i++)
+		pGUI->AddToDrawingList(FreezersList[i]);
+
+	int FrozenFighterCount;
+	Fighter* const* FrozenFighterList = Q_froozen_FT.toArray(FrozenFighterCount);
+	for (int i = 0; i < FrozenFighterCount; i++)
+		pGUI->AddToDrawingList(FrozenFighterList[i]);
+
+	int FrozenFreezerCount;
+	Freezer* const* FrozenFreezerList = Q_froozen_FR.toArray(FrozenFreezerCount);
+	for (int i = 0; i < FrozenFreezerCount; i++)
+		pGUI->AddToDrawingList(FrozenFreezerList[i]);
+
+	int FrozenHealerCount;
+	Healer* const* FrozenHealerList = Q_froozen_HL.toArray(FrozenHealerCount);
+	for (int i = 0; i < FrozenHealerCount; i++)
+		pGUI->AddToDrawingList(FrozenHealerList[i]);
+
 	//Add other lists to drawing list
+	//-------------------------------------------------------------------------------//
+
 	//TO DO
 	//In next phases, you should add enemies from different lists to the drawing list
 	//For the sake of demo, we will use DemoList
+
+	for (int i = 0; i < EDrawCount; i++)//added by Nour
+		pGUI->AddToDrawingList(BEnemiesForDraw[i]);
+
 	for (int i = 0; i < DemoListCount; i++)
 		pGUI->AddToDrawingList(DemoList[i]);
 }
@@ -333,6 +432,7 @@ void Battle::ActivateEnemies()
 			Freezer* Fr = dynamic_cast<Freezer*>(pE);
 			Q_freezers.enqueue(Fr);
 		}
+		AddtoBEnemiesForDraw(pE);//added by Nour
 		AddtoDemoList(pE);		//move it to demo list (for demo purposes)
 	}
 }
@@ -349,6 +449,55 @@ void Battle::Demo_UpdateEnemies()
 	for (int i = 0; i < DemoListCount; i++)
 	{
 		pE = DemoList[i];
+		switch (pE->GetStatus())
+		{
+		case ACTV:
+			pE->DecrementDist();	//move the enemy towards the castle
+			Prop = rand() % 100;
+			if (Prop < FreezProp)		//with Freeze propablity, change some active enemies to be frosted
+			{
+				pE->SetStatus(FRST);
+				ActiveCount--;
+				FrostedCount++;
+			}
+			else	if (Prop < (FreezProp + KillProp))	//with kill propablity, kill some active enemies
+			{
+				pE->SetStatus(KILD);
+				ActiveCount--;
+				KilledCount++;
+			}
+
+			break;
+		case FRST:
+			Prop = rand() % 100;
+			if (Prop < ActvProp)			//with activation propablity, change restore some frosted enemies to be active again
+			{
+				pE->SetStatus(ACTV);
+				ActiveCount++;
+				FrostedCount--;
+			}
+
+			else	if (Prop < (ActvProp + KillProp))			//with kill propablity, kill some frosted enemies
+			{
+				pE->SetStatus(KILD);
+				FrostedCount--;
+				KilledCount++;
+			}
+
+			break;
+		}
+	}
+}
+void Battle::UpdateEnemies()
+{
+	Enemy* pE;
+	int Prop;
+	//Freeze, activate, and kill propablities (for sake of demo)
+	int FreezProp = 5, ActvProp = 10, KillProp = 1;
+	srand(time(0));
+	for (int i = 0; i < EDrawCount; i++)
+	{
+		pE = BEnemiesForDraw[i];
 		switch (pE->GetStatus())
 		{
 		case ACTV:

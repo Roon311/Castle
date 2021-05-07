@@ -3,7 +3,7 @@
 template < typename T>
 class Priority_queue
 {
-	Node<T> * front;
+	Node<T>* front;
 	int size;
 public:
 	Priority_queue();
@@ -12,6 +12,5 @@ public:
 	Node<T>* top();
 	void push(T elemnt);
 	void pop();
+	const T* toArray(int& count);
 };
-
-

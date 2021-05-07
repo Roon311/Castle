@@ -16,6 +16,7 @@ public:
 	bool Push(const T& newItem);
 	bool Pop(T& TopItem);
 	bool Peek(T& TopItem) const;
+	const T* toArray(int& count);
 };
 
 template <typename T>
@@ -79,7 +80,34 @@ bool  Stack<T>::Peek(T& TopItem) const
 		TopItem = top->getItem();
 	return true;
 }
+template <typename T>
 
+const T* Stack<T>::toArray(int& count)
+{
+	count = 0;
+
+	if (!top)
+		return nullptr;
+
+	Node<T>* pointer = top;
+	while (pointer)
+	{
+		count++;
+		pointer = pointer->getNext();
+	}
+
+	T* Array = new T[count];
+	pointer = top;
+
+	for (int i = 0; i < count; i++)
+	{
+		Array[i] = pointer->getItem();
+		pointer = pointer->getNext();
+	}
+
+	return Array;
+
+}
 template <typename T>
 Stack<T>::~Stack()
 {
@@ -88,5 +116,3 @@ Stack<T>::~Stack()
 
 
 #endif // !STACK_H
-
-

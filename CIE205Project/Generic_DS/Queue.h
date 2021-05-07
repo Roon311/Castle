@@ -10,11 +10,13 @@ a frontPtr pointer for the front of the queue and a backPtr pointer for the back
 */
 
 /*
+
 				The Node: item of type T and a "next" pointer
 					-------------
 					| item| next | --->
 					-------------
 General Queue case:
+
 				 frontPtr																backPtr
 					\											   						/
 					 \											  					   /
@@ -23,10 +25,13 @@ General Queue case:
 					------------- 	  ------------- 	  ------------- 	  -------------
 
 Empty Case:
+
 				 frontptr	 backptr
 						\	 /
 						 \	/
 					---- NULL ------
+
+
 Single Node Case:
 				 frontPtr	 backPtr
 					\		/
@@ -34,6 +39,7 @@ Single Node Case:
 					--------
 					|	|nxt -->NULL
 					--------
+
 */
 
 #include "Node.h"
@@ -63,6 +69,7 @@ public:
 /*
 Function: Queue()
 The constructor of the Queue class.
+
 */
 
 template <typename T>
@@ -77,6 +84,7 @@ Queue<T>::Queue()
 /*
 Function: isEmpty
 Sees whether this queue is empty.
+
 Input: None.
 Output: True if the queue is empty; otherwise false.
 */
@@ -93,6 +101,7 @@ bool Queue<T>::isEmpty() const
 
 /*Function:enqueue
 Adds newEntry at the back of this queue.
+
 Input: newEntry .
 Output: True if the operation is successful; otherwise false.
 */
@@ -116,6 +125,7 @@ bool Queue<T>::enqueue(const T& newEntry)
 /*Function: dequeue
 Removes the front of this queue. That is, removes the item that was added
 earliest.
+
 Input: None.
 Output: True if the operation is successful; otherwise false.
 */
@@ -146,6 +156,7 @@ bool Queue<T>::dequeue(T& frntEntry)
 /*
 Function: peekFront
 gets the front of this queue. The operation does not modify the queue.
+
 Input: None.
 Output: The front of the queue.
 return: flase if Queue is empty
@@ -213,7 +224,7 @@ const T* Queue<T>::toArray(int& count)
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-template < typename T>
+/*template < typename T>
 class Priority_queue
 {
 	Node<T>* front;
@@ -225,7 +236,6 @@ public:
 	Node<T>* top();
 	void push(T elemnt);
 	void pop();
-	const T* toArray(int& count);
 };
 
 
@@ -291,33 +301,7 @@ void Priority_queue<T>::pop() {
 		delete savefront;
 		--size;
 	}
-}
-
-template <typename T>
-const T* Priority_queue<T>::toArray(int& count)
-{
-	count = 0;
-
-	if (front == nullptr)
-		return nullptr;
-
-	Node<T>* p = front;
-	while (p)
-	{
-		count++;
-		p = p->getNext();
-	}
-
-
-	T* Arr = new T[count];
-	p = front;
-	for (int i = 0; i < count; i++)
-	{
-		Arr[i] = p->getItem();
-		p = p->getNext();
-	}
-	return Arr;
-}
+}*/
 
 
 #endif

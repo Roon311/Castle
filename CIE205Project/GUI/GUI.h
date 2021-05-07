@@ -78,8 +78,8 @@ private:
 
 	/////////
 
-	void DrawSingleItem(const DrawingItem* pDitem, int RegionCount) const;		//draws ONE item 
-	void DrawAllItems();		//drwas ALL items in DrawingList
+	void DrawSingleEnemy(const DrawingItem* pDitem, int RegionCount) const;		//draws ONE item 
+	void DrawAllItems();		//draws ALL items in DrawingList
 
 	void DrawString(const int iX, const int iY, const string Text); // prints a message in the passed coordinates
 	void DrawCastleArea() const;	    // draws the Castle area
@@ -94,17 +94,20 @@ public:
 	~GUI();
 
 	// Input Functions  ---------------------------
-	void waitForClick() const;	// waits a user click from the user
+	void waitForClick() const;				// waits a user click from the user
 
-	string GetString() const; // reads a string (keyboard input) from the user
+	string GetString() const;				// reads a string (keyboard input) from the user
+	keytype GetPress() const;				//added by Nour
 
 	// Output Functions  ---------------------------
-	void PrintMessage(string msg) const; // prints a message in the status bar
-	void UpdateStatusBar(int TimeStep);	//prints info on status bar. Info includes timestep and other enemies info as illustrated in project doc
+	void PrintMessage(string msg) const;	// prints a message in the status bar
+	void UpdateStatusBar(int TimeStep);		//prints info on status bar. Info includes timestep and other enemies info as illustrated in project doc
 	void UpdateInterface(int TimeStep);
 	void AddToDrawingList(const Enemy*);	//Adds a new enemy to the drawing queue
-	void ResetDrawingList();		//resets drawing list (should be called every timestep after drawing)
-	bool InDrawingArea(int y);//added by nour---->check if the click is in the drawing area
+	void ResetDrawingList();				//resets drawing list (should be called every timestep after drawing)
+	//void DrawAllEnemies(Enemy* enemies[], int size) const;
+	bool InDrawingArea(int y);				//added by nour---->check if the click is in the drawing area
+	int getDrawingItemsCount()const;		//added by Nour
 	PROG_MODE getGUIMode() const;			//returns the mode of the program
 
 };

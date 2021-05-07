@@ -1,5 +1,6 @@
 #include "GUI.h"
 #include <time.h>
+#include<iostream>
 #include <cstdlib>
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -9,8 +10,8 @@ GUI::GUI()
 	pWind = new window(WindWidth + 15, WindHeight, 0, 0);
 	pWind->ChangeTitle("The Castle ");
 
-	BackgroundClr = KHAKI;	//Background color
-	StatusBarClr = WHITE;	//Status bar color
+	BackgroundClr = WHITE;	//Background color
+	StatusBarClr = POWDERBLUE;	//Status bar color
 
 	//Set color for each enemy type
 	DrawingColors[FIGHTER] = BLUE;		//fighter-enemy color
@@ -61,6 +62,16 @@ string GUI::GetString() const
 
 		PrintMessage(Label);
 	}
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+keytype GUI::GetPress() const
+{
+	char c = NULL;
+	keytype key = pWind->GetKeyPress(c);
+	key = pWind->GetKeyPress(c);
+	cout << "key" << key << endl;
+	return key;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -136,7 +147,7 @@ void GUI::DrawCastleArea() const
 //////////////////////////////////////////////////////////////////////////////////////////
 //Draws the passed item in its region
 //region count in the numbers of items drawn so far in that item's region
-void GUI::DrawSingleItem(const DrawingItem* pDitem, int RegionCount) const       // It is a private function
+void GUI::DrawSingleEnemy(const DrawingItem* pDitem, int RegionCount) const       // It is a private function
 {
 
 	if (RegionCount > MaxRegionEnemyCount)
@@ -155,7 +166,7 @@ void GUI::DrawSingleItem(const DrawingItem* pDitem, int RegionCount) const      
 	color pixelClr = BackgroundClr;
 	int VertCount;	//Verical enemy count at same distance
 
-	int x, y, refX, refY;
+	int x = 00, y = 0, refX = 0, refY = 0;
 	//First calculate x,y position of the enemy on the output screen
 	//It depends on the region and the enemy distance
 	switch (Region)
@@ -229,13 +240,49 @@ void GUI::DrawAllItems()
 {
 	//Prepare counter for each region
 	int RegionsCounts[REG_CNT] = { 0 };	//initlaize all counters to zero
-
 	DrawingItem* pDitem;
-	for (int i = 0; i < DrawingItemsCount; i++)
+	//for (int m = 0; m <= DrawingItemsCount; m++)
+	//{
+	for (int i = INAC_REG; i <= KILD_REG; i++)
 	{
-		pDitem = DrawingList[i];
-		RegionsCounts[pDitem->region]++;
-		DrawSingleItem(DrawingList[i], RegionsCounts[pDitem->region]);
+		bool drawtoken = true;
+		int Counter = 0;	// count for Enemies having same distance so we can draw them vertically
+		for (int distance = MaxDistance; distance >= MinDistance; distance--)
+		{
+			Counter = 0;
+
+			for (int j = 0; j < DrawingItemsCount; j++)
+			{
+				pDitem = DrawingList[j];
+				if (pDitem->distance == distance && pDitem->region == i)
+				{
+					Counter++;
+				}
+			}
+			if (Counter > 15)
+			{
+				drawtoken = false;
+				break;
+			}
+		}
+		if (drawtoken == true)
+		{
+			for (int k = MaxDistance; k > 1; k--)
+			{
+				Counter = 0;
+
+				for (int l = 0; l < DrawingItemsCount; l++)
+				{
+					pDitem = DrawingList[l];
+					if (pDitem->distance == k && pDitem->region == i)
+					{
+						//pDitem = DrawingList[i];
+						RegionsCounts[pDitem->region]++;
+						DrawSingleEnemy(DrawingList[l], RegionsCounts[pDitem->region]);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -270,6 +317,18 @@ void GUI::AddToDrawingList(const Enemy* pE)
 	pDitem->region = (GUI_REGION)(pE->GetStatus());	//map status to drawing region	
 
 	// IMPORTANT [TO DO]
+	/*if (pE->Get_Type() == FIGHTER)
+	{
+		Fighter* Fi = dynamic_cast<Fighter*>(pE);
+	}
+	else if (pE->Get_Type() == HEALER)
+	{
+		Healer* He = dynamic_cast<Healer*>(pE);
+	}
+	else
+	{
+		Freezer* Fr = dynamic_cast<Freezer*>(pE);
+	}*/
 	// enemy type has been generated randomly here because enemy classes are not written yet
 	// in next phases, to know enemy type, you should apply dynamic_cast to pE pointer
 	int eType = pDitem->ID % ENMY_TYPE_CNT;
@@ -288,6 +347,10 @@ void GUI::ResetDrawingList()
 
 	DrawingItemsCount = 0;
 }
+//void GUI::DrawAllEnemies(Enemy* enemies[], int size) const
+//{
+//
+//}
 
 bool GUI::InDrawingArea(int y)
 {
@@ -296,6 +359,10 @@ bool GUI::InDrawingArea(int y)
 		return true;
 	}
 	else return false;
+}
+int GUI::getDrawingItemsCount() const
+{
+	return DrawingItemsCount;
 }
 
 PROG_MODE	GUI::getGUIMode() const
@@ -306,6 +373,6 @@ PROG_MODE	GUI::getGUIMode() const
 		PrintMessage("Please select GUI mode: (1)Interactive, (2)StepByStep, (3)Silent, (4)DEMO... ");
 		string S = GetString();
 		Mode = (PROG_MODE)(atoi(S.c_str()) - 1);
-	} 	while (Mode < 0 || Mode >= MODE_CNT);
+	} while (Mode < 0 || Mode >= MODE_CNT);
 	return Mode;
 }

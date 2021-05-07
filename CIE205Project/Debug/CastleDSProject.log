@@ -1,8 +1,14 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Priority_queue.cpp
-  Healer.cpp
-  Freezer.cpp
-  Fighter.cpp
+  GUI.cpp
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\Castle-main\CIE205Project\GUI\GUI.cpp(300,2): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   Generating Code...
-Battle.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Debug\CastleDSProject.exe
+  Compiling...
+  Battle.cpp
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\Castle-main\CIE205Project\Battle.cpp(317,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\Castle-main\CIE205Project\Battle.cpp(443,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\Castle-main\CIE205Project\Battle.cpp(492,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Compiling...
+  Demo_Main.cpp
+  Generating Code...
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\Castle-main\CIE205Project\Debug\CastleDSProject.exe

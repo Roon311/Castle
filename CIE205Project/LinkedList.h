@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Generic_DS/Node.h"
+#include "Node.h"
 using namespace std;
 template <class T> class LinkedList
 {
@@ -63,6 +63,7 @@ public:
 		}
 		return array;
 	}
+
 
 	~LinkedList()//destructor 
 	{
