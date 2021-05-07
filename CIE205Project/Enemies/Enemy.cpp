@@ -123,3 +123,18 @@ ENMY_TYPE Enemy::Get_Type() const
 {
 	return TYPE;
 }
+void Enemy::Set_Original_Health(double OH)
+{
+	if (OH > 0)
+	{
+		originalHealth = OH;
+	}
+	else
+	{
+		originalHealth = 0;
+	}
+}
+double Enemy::Get_Original_Health() const
+{
+	return originalHealth;
+}

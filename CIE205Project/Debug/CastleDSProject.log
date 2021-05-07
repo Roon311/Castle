@@ -1,9 +1,8 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Battle.cpp
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(218,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Battle.cpp(303,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Priority_queue.cpp
+  Healer.cpp
+  Freezer.cpp
+  Fighter.cpp
   Generating Code...
-  Compiling...
-  Demo_Main.cpp
-  Generating Code...
+Battle.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\CIE205Project\Debug\CastleDSProject.exe

@@ -32,11 +32,11 @@ double Castle::GetPower() const
 void Castle::SetMax_Enemy(int M)
 {
 	if (M > 0)
-		Max_enemyA_Time = M;
+		Max_numofenemy = M;
 	else
-		Max_enemyA_Time = 0; // killed
+		Max_numofenemy = 0; // killed
 }
 int Castle::GetMax_Enemy() const
 {
-	return Max_enemyA_Time;
+	return Max_numofenemy;
 }

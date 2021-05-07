@@ -104,6 +104,7 @@ void Battle::Parsing()
 				int H = stoi(pch);;
 				pch = strtok_s(NULL, " ", &context);
 				enemy1.Set_Health(H);
+				enemy1.Set_Original_Health(H);
 			}
 
 			if (pch != NULL)
@@ -139,7 +140,7 @@ void Battle::Killing(Enemy* killed) //omar adding
 /*void Battle::Freezing(Enemy* Freezed) //omar adding
 {
 	Q_froozen.enqueue(Freezed);
-}  
+}
 void Battle::UnFreezing(Enemy* UnFreezed) //omar adding
 {
 	Q_froozen.dequeue(UnFreezed);
@@ -169,35 +170,76 @@ void Battle::RunSimulation()//starting the battle
 	//while (flag == true)//added by Nour
 	//{
 		//-------------------------------Added by Nour----------------------------------------//
-		char c = NULL;
-		keytype key = pGUI->pWind->GetKeyPress(c);
-		
-		if (key != 4)
-		{
-			//cout << "Lets Play" << endl; //for debugging 
-			#pragma comment(lib,"winmm.lib")
-			PlaySound("jujutsukaisen.wav", NULL, SND_ASYNC);
-		}
-		else { PlaySound("pszSound", NULL, SND_ASYNC); }
-		//------------------------------------------------------------------------------------//
-		switch (mode)	//Add a function for each mode in next phases
-		{
-		case MODE_INTR:
-			break;
-		case MODE_STEP:
-			break;
-		case MODE_SLNT:
-			break;
-		case MODE_DEMO:
-			Just_A_Demo();
+	char c = NULL;
+	keytype key = pGUI->pWind->GetKeyPress(c);
 
-		}
-		delete pGUI;
+	if (key != 4)
+	{
+		//cout << "Lets Play" << endl; //for debugging 
+#pragma comment(lib,"winmm.lib")
+		PlaySound("jujutsukaisen.wav", NULL, SND_ASYNC);
 	}
+	else { PlaySound("pszSound", NULL, SND_ASYNC); }
+	//------------------------------------------------------------------------------------//
+	switch (mode)	//Add a function for each mode in next phases
+	{
+	case MODE_INTR:
+		InteractiveMode();//added by Nour
+		break;
+	case MODE_STEP:
+		StepMode();//added by nour
+		break;
+	case MODE_SLNT:
+		SilentMode();//added by nour
+		break;
+	case MODE_DEMO://to be removed "nour"
+		Just_A_Demo();
+	}
+	delete pGUI;
+}
 
 //}
 
+void Battle::InteractiveMode()//added by nour
+{
+	char c = NULL;
+	keytype key = pGUI->pWind->GetKeyPress(c);
+	CurrentTimeStep = 0;
+	while (key != 4)
+	{
+		key = pGUI->pWind->GetKeyPress(c);
+		int x = 0;
+		int y = 0;
+		pGUI->pWind->WaitMouseClick(x, y);	//check if click is inside the yellow box
+		pGUI->InDrawingArea(y);
+		CurrentTimeStep++;
+		pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
+		cout << CurrentTimeStep << endl;
+	}
 
+}
+void Battle::SilentMode()//added by nour
+{
+
+}
+void Battle::StepMode()//added by nour
+{
+	char c = NULL;
+	keytype key = pGUI->pWind->GetKeyPress(c);
+	CurrentTimeStep = 0;
+	while (key != 4)
+	{
+		key = pGUI->pWind->GetKeyPress(c);
+		int x = 0;
+		int y = 0;
+		pGUI->pWind->WaitMouseClick(x, y);	//check if click is inside the yellow box
+		pGUI->InDrawingArea(y);
+		CurrentTimeStep++;
+		Sleep(1000);
+		pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
+		cout << CurrentTimeStep << endl;
+	}
+}
 //This is just a demo function for project introductory phase
 //It should be removed in phases 1&2
 void Battle::Just_A_Demo()
@@ -278,15 +320,18 @@ void Battle::ActivateEnemies()
 		//pE->
 		if (pE->Get_Type() == 0)
 		{
-			Q_fighters.push(pE);
+			Fighter* Fi = dynamic_cast<Fighter*>(pE);
+			//Q_fighters.push(Fi);
 		}
 		else if (pE->Get_Type() == 1)
 		{
-			S_Healers.Push(pE);
+			Healer* He = dynamic_cast<Healer*>(pE);
+			S_Healers.Push(He);
 		}
 		else if (pE->Get_Type() == 2)
 		{
-			Q_freezers.enqueue(pE);
+			Freezer* Fr = dynamic_cast<Freezer*>(pE);
+			Q_freezers.enqueue(Fr);
 		}
 		AddtoDemoList(pE);		//move it to demo list (for demo purposes)
 	}

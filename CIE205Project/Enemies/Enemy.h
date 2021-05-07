@@ -17,7 +17,8 @@ protected:
 	int Distance;	//Horizontal distance between enemy & the tower of its region
 					//Always positive (ranges from 2 to 60)
 	double Health;	//Enemy health
-	
+
+	double originalHealth; // omar adding
 	ENMY_TYPE TYPE; //omar adding
 	int Power; //omar adding
 	int Reload_Period;//omar adding
@@ -51,7 +52,8 @@ public:
 	int Get_Speed() const; //omar adding
 	void Set_Type(ENMY_TYPE TYPE); //omar adding
 	ENMY_TYPE Get_Type() const; //omar adding
-
+	double Get_Original_Health() const; //omar adding
+	void Set_Original_Health(double OH); //omar adding
 
 	// Virtual Functions: ----------------
 
