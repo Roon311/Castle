@@ -120,6 +120,7 @@ bool Queue<T>::enqueue(const T& newEntry)
 	else
 		backPtr->setNext(newNodePtr); // The queue was not empty
 	backPtr = newNodePtr; // New node is at back
+	size++;
 	return true;
 } // end enqueue
 

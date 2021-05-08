@@ -265,18 +265,18 @@ void GUI::UpdateStatusBar(int CurrentTimeStep)
 
 	pWind->DrawString(10, WindHeight - (int)(StatusBarHeight / 1.1), "Current Timestep: ");
 	pWind->DrawString(15, WindHeight - (int)(StatusBarHeight / 1.3), "Active Enemies ");
-	pWind->DrawString(15, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Active_Fighters));
+	//pWind->DrawString(15, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Active_Fighters));
 	pWind->DrawString(15, WindHeight - (int)(StatusBarHeight / 2), "No.of Healers: " + to_string(Active_Healers));
 	pWind->DrawString(15, WindHeight - (int)(StatusBarHeight / 2.6), "No.of Freezers: " + to_string(Active_Freezers));
-	pWind->DrawString(14, WindHeight - (int)(StatusBarHeight / 3.8), "Total Active Enemies: " + to_string(Total_Active_Enemies));
+	pWind->DrawString(14, WindHeight - (int)(StatusBarHeight / 3.8), "Total Active Enemies: " + to_string(Active_Healers+ Active_Freezers+ Active_Fighters));
 
 
 	pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 1.1), "Castle Health: " + to_string(Castle_Health));
 	pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 1.3), "Killed Enemies ");
-	pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Killed_Fighters));
+	//pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Killed_Fighters));
 	pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 2), "No.of Healers: " + to_string(Killed_Healers));
 	pWind->DrawString(500, WindHeight - (int)(StatusBarHeight / 2.6), "No.of Freezers: " + to_string(Killed_Freezers));
-	pWind->DrawString(499, WindHeight - (int)(StatusBarHeight / 3.8), "Total Killed Enemies: " + to_string(Total_Killed_Enemies));
+	pWind->DrawString(499, WindHeight - (int)(StatusBarHeight / 3.8), "Total Killed Enemies: " + to_string(Killed_Healers+ Killed_Freezers+ Killed_Fighters));
 
 	if (Castle_Status == true)
 		castle_Status = "True";
@@ -287,10 +287,10 @@ void GUI::UpdateStatusBar(int CurrentTimeStep)
 
 	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 1.1), "Is Castle Frosted?: " + castle_Status);
 	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 1.3), "Frosted Enemies ");
-	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Frosted_Fighters));
+//	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 1.6), "No.of Fighters: " + to_string(Frosted_Fighters));
 	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 2), "No.of Healers: " + to_string(Frosted_Healers));
 	pWind->DrawString(900, WindHeight - (int)(StatusBarHeight / 2.6), "No.of Freezers: " + to_string(Frosted_Freezers));
-	pWind->DrawString(888, WindHeight - (int)(StatusBarHeight / 3.8), "Total Frosted Enemies: " + to_string(Total_Frosted_Enemies));
+	pWind->DrawString(888, WindHeight - (int)(StatusBarHeight / 3.8), "Total Frosted Enemies: " + to_string(Frosted_Fighters+ Frosted_Healers+ Frosted_Freezers));
 
 	pWind->DrawLine((WindWidth + 450) / 2, (YHalfDrawingArea + 320) - CastleWidth / 2, (WindWidth + 450) / 2, (YHalfDrawingArea + 320) + CastleWidth / 2);
 	pWind->DrawLine((WindWidth - 500) / 2, (YHalfDrawingArea + 320) - CastleWidth / 2, (WindWidth - 500) / 2, (YHalfDrawingArea + 320) + CastleWidth / 2);
@@ -383,10 +383,7 @@ void GUI::Set_Active_Healers(int Healers)
 	Active_Healers = Healers;
 }
 
-void GUI::Set_Active_Enemies(int Enemies)
-{
-	Total_Active_Enemies = Enemies;
-}
+
 
 void GUI::Set_Frosted_Fighters(int Frozen_Fighters)
 {
@@ -399,10 +396,6 @@ void GUI::Set_Frosted_Freezers(int Frozen_Freezers)
 void GUI::Set_Frosted_Healers(int Frozen_Healers)
 {
 	Frosted_Healers = Frozen_Healers;
-}
-void GUI::Set_Frosted_Enemies(int Frosted_Enemies)
-{
-	Total_Frosted_Enemies = Frosted_Enemies;
 }
 
 void GUI::Set_Killed_Fighters(int Fighters)
@@ -417,10 +410,7 @@ void GUI::Set_Killed_Healers(int Healers)
 {
 	Killed_Healers = Healers;
 }
-void GUI::Set_Killed_Enemies(int Killed_Enemies)
-{
-	Total_Killed_Enemies = Killed_Enemies;
-}
+
 
 void GUI::Set_Castle_Health(double health)
 {

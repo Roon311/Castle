@@ -294,29 +294,7 @@ void Battle::InteractiveMode()//added by nour
 			
 			while (KilledCount < EnemyCount)	//as long as some enemies are alive (should be updated in next phases)
 			{
-				///////////Update Battle Info/////////////// by Rodina
-				pGUI->Set_Active_Healers(S_Healers.getSize());
-				pGUI->Set_Active_Freezers(Q_freezers.getSize());
-				//pGUI->Set_Active_Fighters(Q_fighters.getSize());
-				pGUI->Set_Active_Enemies(ActiveCount);
-
-				pGUI->Set_Frosted_Healers(Q_froozen_HL.getSize());
-				pGUI->Set_Frosted_Freezers(Q_froozen_FR.getSize());
-				pGUI->Set_Frosted_Fighters(Q_froozen_FT.getSize());
-				pGUI->Set_Frosted_Enemies(FrostedCount);
-
-				pGUI->Set_Killed_Healers(L_Killed_Healers.getSize());
-				pGUI->Set_Killed_Freezers(L_Killed_Freezers.getSize());
-				pGUI->Set_Killed_Fighters(L_Killed_Fighters.getSize());
-				pGUI->Set_Killed_Enemies(KilledCount);
-
-				///////////////Update_castle_Info/////////// by Rodina
-				pGUI->Set_Castle_Health(BCastle.GetHealth());
-				pGUI->Set_Castle_Status(BCastle.Get_Frosted());
-
-				/// ///////
-
-
+				
 				pGUI->waitForClick();	//check if click is inside the yellow box
 				CurrentTimeStep++;
 				pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
@@ -324,6 +302,27 @@ void Battle::InteractiveMode()//added by nour
 				pGUI->UpdateInterface(CurrentTimeStep);
 				UpdateEnemies();	
 				pGUI->UpdateInterface(CurrentTimeStep);
+				///////////Update Battle Info/////////////// by Rodina
+				pGUI->Set_Active_Healers(S_Healers.getSize());
+				pGUI->Set_Active_Freezers(Q_freezers.getSize());
+				//pGUI->Set_Active_Fighters(Q_fighters.getSize());
+
+
+				pGUI->Set_Frosted_Healers(Q_froozen_HL.getSize());
+				pGUI->Set_Frosted_Freezers(Q_froozen_FR.getSize());
+				//pGUI->Set_Frosted_Fighters(Q_froozen_FT.getSize());
+
+
+				pGUI->Set_Killed_Healers(L_Killed_Healers.getSize());
+				pGUI->Set_Killed_Freezers(L_Killed_Freezers.getSize());
+				//pGUI->Set_Killed_Fighters(L_Killed_Fighters.getSize());
+
+
+				///////////////Update_castle_Info/////////// by Rodina
+				pGUI->Set_Castle_Health(BCastle.GetHealth());
+				pGUI->Set_Castle_Status(BCastle.Get_Frosted());
+
+				/// ///////
 				pGUI->ResetDrawingList();
 				AddAllListsToDrawingList();
 				pGUI->UpdateInterface(CurrentTimeStep);

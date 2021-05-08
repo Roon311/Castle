@@ -80,27 +80,27 @@ private:
 	//////////////////////////////////////////////////////////////
 ////////// CastleInfo //by Rodina
 
-	double Castle_Health;
+	double Castle_Health=0;
 	bool Castle_Status;
 
 	//////////////////////////
 
 	// BattleStatistics/////////////////   //by Rodina
 
-	int Active_Fighters;
-	int Active_Freezers;
-	int Active_Healers;
-	int Total_Active_Enemies;
+	int Active_Fighters=0;
+	int Active_Freezers = 0;
+	int Active_Healers = 0;
+	
 
-	int Frosted_Fighters;
-	int Frosted_Freezers;
-	int Frosted_Healers;
-	int Total_Frosted_Enemies;
+	int Frosted_Fighters = 0;
+	int Frosted_Freezers = 0;
+	int Frosted_Healers = 0;
 
-	int Killed_Fighters;
-	int Killed_Freezers;
-	int Killed_Healers;
-	int Total_Killed_Enemies;
+
+	int Killed_Fighters = 0;
+	int Killed_Freezers = 0;
+	int Killed_Healers = 0;
+	
 	/////////////////////////////////////////////
 	// 
 	// TODO: Add more members if needed
@@ -142,17 +142,17 @@ public:
 	void Set_Active_Fighters(int Active_Fighters);
 	void Set_Active_Freezers(int Active_Freezers);
 	void Set_Active_Healers(int Active_Healers);
-	void Set_Active_Enemies(int Active_Enemies);
+	
 
 	void Set_Frosted_Fighters(int Frosted_Fighters);
 	void Set_Frosted_Freezers(int Frosted_Freezers);
 	void Set_Frosted_Healers(int Frosted_Healers);
-	void Set_Frosted_Enemies(int Frosted_Enemies);
+	
 
 	void Set_Killed_Fighters(int Killed_Fighters);
 	void Set_Killed_Freezers(int Killed_Freezers);
 	void Set_Killed_Healers(int Killed_Healers);
-	void Set_Killed_Enemies(int Killed_Enemies);
+	
 
 	void Set_Castle_Health(double health);
 	void Set_Castle_Status(bool state);

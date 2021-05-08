@@ -34,7 +34,7 @@ private:
 	Queue<Enemy*> Q_Inactive;		//Queue of inactive enemies
 	Stack<Healer*> S_Healers;
 	Queue<Freezer*> Q_freezers;
-	Priority_queue<Fighter*> Q_fighters;   ///makes an error
+	//Priority_queue<Fighter*> Q_fighters;   ///makes an error
 	Queue<Freezer*> Q_froozen_FR;
 	Queue<Fighter*> Q_froozen_FT;
 	Queue<Healer*> Q_froozen_HL;
