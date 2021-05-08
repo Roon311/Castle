@@ -199,10 +199,10 @@ void Battle::setEnemyCount(int count)
 	 }
  }
 
-void Battle::Killing(Enemy* killed) //omar adding
-{
-	L_Killed.InsertEnd(killed);
-}
+//void Battle::Killing(Enemy* killed) //omar adding
+//{
+//	L_Killed.InsertEnd(killed);
+//}
 /*void Battle::Freezing(Enemy* Freezed) //omar adding
 {
 	Q_froozen.enqueue(Freezed);

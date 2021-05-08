@@ -34,15 +34,14 @@ private:
 	Queue<Enemy*> Q_Inactive;		//Queue of inactive enemies
 	Stack<Healer*> S_Healers;
 	Queue<Freezer*> Q_freezers;
-	//Priority_queue<Fighter*> Q_fighters;   ///makes an error
-	LinkedList<Enemy*> L_Killed;     //when linked list created
+	Priority_queue<Fighter*> Q_fighters;   ///makes an error
 	Queue<Freezer*> Q_froozen_FR;
 	Queue<Fighter*> Q_froozen_FT;
 	Queue<Healer*> Q_froozen_HL;
 	/////////////////////////
-	LinkedList<Fighter*> L_Killed_Fighters; //by Rodina   
-	LinkedList<Healer*> L_Killed_Healers;//by Rodina
-	LinkedList<Freezer*> L_Killed_Freezers;//by Rodina
+	Queue<Fighter*> L_Killed_Fighters; //by Rodina   
+	Queue<Healer*> L_Killed_Healers;//by Rodina
+	Queue<Freezer*> L_Killed_Freezers;//by Rodina
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
