@@ -1,0 +1,70 @@
+﻿  Battle.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Battle.cpp(347,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Battle.cpp(499,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Battle.cpp(548,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Castle.cpp
+  auxil.cpp
+  CMUgraphics.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(751,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1164,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1171,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1202,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1210,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1357,23): warning C4018: '>': signed/unsigned mismatch
+  colors.cpp
+  image.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\image.cpp(115,29): warning C4018: '<': signed/unsigned mismatch
+  keyqueue.cpp
+  mousequeue.cpp
+  windowinput.cpp
+  Demo_Main.cpp
+  Enemy.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Enemies\Enemy.cpp(71,9): warning C4244: 'return': conversion from 'const double' to 'int', possible loss of data
+  Fighter.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Fighter.cpp(10,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Freezer.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Freezer.cpp(11,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  GUI.cpp
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\GUI\GUI.cpp(298,2): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  Healer.cpp
+  Priority_queue.cpp
+  Generating Code...
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\Generic_DS\Stack.h(59): warning C4715: 'Stack<Healer *>::Push': not all control paths return a value
+  jpegload.c
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\jpegload.c(23,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jcomapi.c
+  jcparam.c
+  jdapimin.c
+  jdapistd.c
+  jdatasrc.c
+  jdcoefct.c
+  jdcolor.c
+  jddctmgr.c
+  jdhuff.c
+  jdinput.c
+  jdmainct.c
+  jdmarker.c
+  jdmaster.c
+  jdmerge.c
+  jdphuff.c
+  jdpostct.c
+  jdsample.c
+  jdtrans.c
+  jerror.c
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\jpeg\jerror.c(169,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\jpeg\jerror.c(171,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...
+  Compiling...
+  jidctflt.c
+  jidctfst.c
+  jidctint.c
+  jidctred.c
+  jmemmgr.c
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\jpeg\jmemmgr.c(1103,19): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\CMUgraphicsLib\jpeg\jmemmgr.c(1106,11): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jmemnobs.c
+  jquant1.c
+  jquant2.c
+  jutils.c
+  Generating Code...
+  CastleDSProject.vcxproj -> D:\CIE-Year2-Spring\CIE 205\Project\FIINAL\.\Release\CastleDSProject.exe
