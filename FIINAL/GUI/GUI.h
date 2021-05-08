@@ -32,7 +32,6 @@ class GUI
 	{
 		int ID;				//ID to be printed on the screen indicating this item
 		int distance;		//ditance to be drawn at
-		ENMY_TYPE type;		//type of enemy 
 		GUI_REGION region;	//Region where it should be drawn
 		color	clr;		//drawing color
 

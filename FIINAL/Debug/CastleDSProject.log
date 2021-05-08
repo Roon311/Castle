@@ -1,0 +1,13 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  Battle.cpp
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(166,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(178,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(190,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(377,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(536,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(585,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(651,11): warning C4101: 'FIG_E': unreferenced local variable
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Generic_DS\Stack.h(59): warning C4715: 'Stack<Healer *>::Push': not all control paths return a value
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Generic_DS\Stack.h(84): warning C4715: 'Stack<Healer *>::Pop': not all control paths return a value
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Debug\CastleDSProject.exe

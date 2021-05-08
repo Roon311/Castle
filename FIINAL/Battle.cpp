@@ -101,8 +101,8 @@ void Battle::setEnemyCount(int count)
 		 {
 			 int ID{};
 			 int AT{};
-			 int POW, RLD, SPD;
-			 double H;
+			 int POW{}, RLD{}, SPD{};
+			 double H{};
 			 int TYP1;
 			 pch = strtok_s(line, " ", &context);
 			 if (pch != NULL)
@@ -169,6 +169,7 @@ void Battle::setEnemyCount(int count)
 				 fighter->Set_Reload(RLD);
 				 fighter->Set_Speed(SPD);
 				 fighter->Set_Type(TYP);
+				 Q_Inactive.enqueue(fighter);
 			 }
 			 else if (TYP == HEALER)
 			 {
@@ -180,6 +181,7 @@ void Battle::setEnemyCount(int count)
 				 healer->Set_Reload(RLD);
 				 healer->Set_Speed(SPD);
 				 healer->Set_Type(TYP);
+				 Q_Inactive.enqueue(healer);
 			 }
 			 else if (TYP == FREEZER)
 			 {
@@ -191,6 +193,7 @@ void Battle::setEnemyCount(int count)
 				 freezer->Set_Reload(RLD);
 				 freezer->Set_Speed(SPD);
 				 freezer->Set_Type(TYP);
+				 Q_Inactive.enqueue(freezer);
 			 }
 		 }
 	 }
@@ -318,7 +321,9 @@ void Battle::InteractiveMode()//added by nour
 				CurrentTimeStep++;
 				pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
 				ActivateEnemies();
-				//UpdateEnemies();	
+				pGUI->UpdateInterface(CurrentTimeStep);
+				UpdateEnemies();	
+				pGUI->UpdateInterface(CurrentTimeStep);
 				pGUI->ResetDrawingList();
 				AddAllListsToDrawingList();
 				pGUI->UpdateInterface(CurrentTimeStep);
@@ -411,11 +416,11 @@ void Battle::AddAllListsToDrawingList()
 		pGUI->AddToDrawingList(EnemyList[i]);
 	
 	//-------------------------------added by Nour-------------------------------------//
-	int KilledCount;
+	/*int KilledCount;
 	Enemy* const* KilledList = L_Killed.toArray(KilledCount);
 	for (int i = 0; i < KilledCount; i++)
 		pGUI->AddToDrawingList(KilledList[i]);
-	
+	*/
 	int KilledHealerCount;
 	Healer* const* KilledHealerList = L_Killed_Healers.toArray(KilledHealerCount);
 	for (int i = 0; i < KilledHealerCount; i++)
@@ -501,11 +506,13 @@ void Battle::ActivateEnemies()
 			{
 				Healer* He = static_cast<Healer*>(pE);
 				S_Healers.Push(He);
+				pGUI->UpdateInterface(CurrentTimeStep);
 			}
 			else if (pE->Get_Type() == 2)
 			{
 				Freezer* Fr = static_cast<Freezer*>(pE);
 				Q_freezers.enqueue(Fr);
+				pGUI->UpdateInterface(CurrentTimeStep);
 			}
 			
 		}
