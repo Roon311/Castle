@@ -100,6 +100,8 @@ void Battle::Parsing()
 		{
 			int ID{};
 			int AT{};
+			int POW, RLD,SPD;
+			double H;
 			int TYP1;
 			pch = strtok_s(line, " ", &context);
 			if (pch != NULL)
@@ -122,42 +124,73 @@ void Battle::Parsing()
 				pch = strtok_s(NULL, " ", &context);
 				//cout << AT << " ";
 			}
-			Enemy* enemy1 = new Enemy(ID, AT, MaxDistance);  //torevise
+
+			if (pch != NULL)
+			{
+				H = stoi(pch);;
+				pch = strtok_s(NULL, " ", &context);
+				//enemy1->Set_Health(H);
+				//enemy1->Set_Original_Health(H);
+			}
+
+			if (pch != NULL)
+			{
+				POW = stoi(pch);;
+				pch = strtok_s(NULL, " ", &context);
+				//enemy1->Set_Power(POW);
+			}
+
+			if (pch != NULL)
+			{
+				RLD = stoi(pch);
+				pch = strtok_s(NULL, " ", &context);
+				//enemy1->Set_Reload(RLD);
+			}
+
+			if (pch != NULL)
+			{
+				SPD = stoi(pch);;
+				pch = strtok_s(NULL, " ", &context);
+				//enemy1->Set_Speed(SPD);
+			} //torevise 
+			//Q_Inactive.enqueue(enemy1);
+
+
 
 			ENMY_TYPE TYP = static_cast<ENMY_TYPE>(TYP1);
-
-			enemy1->Set_Type(TYP);
-			enemy1->SetStatus(INAC);//
-
-			if (pch != NULL)
+			if (TYP == FIGHTER)
 			{
-				int H = stoi(pch);;
-				pch = strtok_s(NULL, " ", &context);
-				enemy1->Set_Health(H);
-				enemy1->Set_Original_Health(H);
+				Fighter* fighter = new Fighter(ID, AT, MaxDistance);
+				fighter->SetStatus(INAC);
+				fighter->Set_Health(H);
+				fighter->Set_Original_Health(H);
+				fighter->Set_Power(POW);
+				fighter->Set_Reload(RLD);
+				fighter->Set_Speed(SPD);
+				fighter->Set_Type(TYP);
 			}
-
-			if (pch != NULL)
+			else if (TYP == HEALER)
 			{
-				int POW = stoi(pch);;
-				pch = strtok_s(NULL, " ", &context);
-				enemy1->Set_Power(POW);
+				Healer* healer = new Healer(ID, AT, MaxDistance);
+				healer->SetStatus(INAC);
+				healer->Set_Health(H);
+				healer->Set_Original_Health(H);
+				healer->Set_Power(POW);
+				healer->Set_Reload(RLD);
+				healer->Set_Speed(SPD);
+				healer->Set_Type(TYP);
 			}
-
-			if (pch != NULL)
+			else if (TYP == FREEZER)
 			{
-				int RLD = stoi(pch);
-				pch = strtok_s(NULL, " ", &context);
-				enemy1->Set_Reload(RLD);
+				Freezer* freezer = new Freezer(ID, AT, MaxDistance);
+				freezer->SetStatus(INAC);
+				freezer->Set_Health(H);
+				freezer->Set_Original_Health(H);
+				freezer->Set_Power(POW);
+				freezer->Set_Reload(RLD);
+				freezer->Set_Speed(SPD);
+				freezer->Set_Type(TYP);
 			}
-
-			if (pch != NULL)
-			{
-				int SPD = stoi(pch);;
-				pch = strtok_s(NULL, " ", &context);
-				enemy1->Set_Speed(SPD);
-			} //torevise 
-			Q_Inactive.enqueue(enemy1);
 		}
 	}
 }
@@ -358,7 +391,7 @@ void Battle::AddAllListsToDrawingList()
 
 	//-------------------------------added by Nour-------------------------------------//
 	int KilledCount;
-	Enemy* const* KilledList = L_Killed.toArray(KilledCount);
+	/*Enemy* const* KilledList = L_Killed.toArray(KilledCount);
 	for (int i = 0; i < KilledCount; i++)
 		pGUI->AddToDrawingList(KilledList[i]);
 
@@ -370,7 +403,7 @@ void Battle::AddAllListsToDrawingList()
 	/*int FighterCount;
 	Fighter* const* FighterList = Q_fighters.toArray(FighterCount);
 	for (int i = 0; i < FighterCount; i++)
-		pGUI->AddToDrawingList(FighterList[i]);*/
+		pGUI->AddToDrawingList(FighterList[i]);
 
 	int FreezersCount;
 	Freezer* const* FreezersList = Q_freezers.toArray(FreezersCount);
@@ -390,7 +423,7 @@ void Battle::AddAllListsToDrawingList()
 	int FrozenHealerCount;
 	Healer* const* FrozenHealerList = Q_froozen_HL.toArray(FrozenHealerCount);
 	for (int i = 0; i < FrozenHealerCount; i++)
-		pGUI->AddToDrawingList(FrozenHealerList[i]);
+		pGUI->AddToDrawingList(FrozenHealerList[i]);*/
 
 	//Add other lists to drawing list
 	//-------------------------------------------------------------------------------//

@@ -32,7 +32,7 @@ public:
 	Enemy(int id, int arrTime, int d = MaxDistance);
 	virtual ~Enemy();
 
-	int Enemy::GetID() const;
+	int GetID() const;
 	ENMY_STATUS GetStatus() const;
 	void SetStatus(ENMY_STATUS);
 

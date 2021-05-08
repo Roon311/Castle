@@ -1,4 +1,8 @@
 #include "Healer.h"
+Healer::Healer(int id, int at, int d) : Enemy(id, at, d)
+{
+	;
+}
 void Healer::Move() {
 	if (Health > 0.5 * originalHealth) {
 		if (Distance > 2 + Speed) {
