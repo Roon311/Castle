@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Node.h"
+///////////////////////////////not used///////////////////////
 using namespace std;
 template <class T> class LinkedList
 {

@@ -1,85 +1,18 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Priority_queue.cpp
-  Healer.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  GUI.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\GUI\GUI.cpp(263,2): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
-  Freezer.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Freezer.cpp(15,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Fighter.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Fighter.cpp(14,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Enemy.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.cpp(71,9): warning C4244: 'return': conversion from 'const double' to 'int', possible loss of data
-  Demo_Main.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  windowinput.cpp
-  mousequeue.cpp
-  keyqueue.cpp
-  image.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\image.cpp(115,29): warning C4018: '<': signed/unsigned mismatch
-  colors.cpp
-  CMUgraphics.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(751,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1164,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1171,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1202,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1210,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\CMUgraphics.cpp(1357,23): warning C4018: '>': signed/unsigned mismatch
-  auxil.cpp
-  Castle.cpp
   Battle.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(166,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(178,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(190,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(376,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(529,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(578,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Battle.cpp(644,11): warning C4101: 'FIG_E': unreferenced local variable
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(167,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(179,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(191,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(382,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(535,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(584,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(650,11): warning C4101: 'FIG_E': unreferenced local variable
   Generating Code...
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Generic_DS\Stack.h(59): warning C4715: 'Stack<Healer *>::Push': not all control paths return a value
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Generic_DS\Stack.h(84): warning C4715: 'Stack<Healer *>::Pop': not all control paths return a value
-cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  jutils.c
-  jquant2.c
-  jquant1.c
-  jmemnobs.c
-  jmemmgr.c
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\jpeg\jmemmgr.c(1103,19): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\jpeg\jmemmgr.c(1106,11): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  jidctred.c
-  jidctint.c
-  jidctfst.c
-  jidctflt.c
-  jerror.c
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\jpeg\jerror.c(169,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\jpeg\jerror.c(171,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  jdtrans.c
-  jdsample.c
-  jdpostct.c
-  jdphuff.c
-  jdmerge.c
-  jdmaster.c
-  jdmarker.c
-  jdmainct.c
-  jdinput.c
-  jdhuff.c
-  Generating Code...
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Generic_DS\Stack.h(84): warning C4715: 'Stack<Healer *>::Pop': not all control paths return a value
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Generic_DS\Stack.h(59): warning C4715: 'Stack<Healer *>::Push': not all control paths return a value
   Compiling...
-  jddctmgr.c
-  jdcolor.c
-  jdcoefct.c
-  jdatasrc.c
-  jdapistd.c
-  jdapimin.c
-  jcparam.c
-  jcomapi.c
-  jpegload.c
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\CMUgraphicsLib\jpegload.c(23,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Demo_Main.cpp
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating Code...
-Battle.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\CIE205 Project\FIINAL\Debug\CastleDSProject.exe
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Debug\CastleDSProject.exe

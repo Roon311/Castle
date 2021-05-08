@@ -1,5 +1,4 @@
-#ifndef __QUEUE_H_
-#define __QUEUE_H_
+#pragma once
 
 /*This code is an updated version from "Data Abstraction & Problem Solving with C++,WALLS AND MIRRORS ,SIXTH EDITION"*/
 
@@ -313,5 +312,3 @@ void Priority_queue<T>::pop() {
 	}
 }*/
 
-
-#endif

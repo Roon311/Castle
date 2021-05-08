@@ -1,6 +1,7 @@
 #include "Battle.h"
 #include <time.h>
 #include <fstream>
+#include<iostream>
 
 Battle::Battle()
 {
@@ -201,7 +202,6 @@ void Battle::setEnemyCount(int count)
 
 //void Battle::Killing(Enemy* killed) //omar adding
 //{
-//	L_Killed.InsertEnd(killed);
 //}
 /*void Battle::Freezing(Enemy* Freezed) //omar adding
 {
@@ -281,7 +281,7 @@ void Battle::InteractiveMode()//added by nour
 	char c = NULL;
 	keytype key = pGUI->pWind->GetKeyPress(c);
 	key = pGUI->pWind->GetKeyPress(c);
-	cout << "key" << key << endl;
+	//cout << "key" << key << endl;
 	//keytype key = pGUI->GetPress();
 	setCurrentTimetep(0);
 	pGUI->UpdateInterface(CurrentTimeStep);
@@ -328,10 +328,16 @@ void Battle::InteractiveMode()//added by nour
 				pGUI->UpdateInterface(CurrentTimeStep);
 				
 			}
-			cout << "EnemyCount Exists and went to zero";
+			Healer* killed;
+			S_Healers.Pop(killed);
+			L_Killed_Healers.enqueue(killed);
+			pGUI->ResetDrawingList();
+			AddAllListsToDrawingList();
+			pGUI->UpdateInterface(CurrentTimeStep);
+			//cout << "EnemyCount Exists and went to zero";
 		}
 	}
-	cout << "We are out" << endl;// for debugging 
+//	cout << "We are out" << endl;// for debugging 
 
 }
 void Battle::SilentMode()//added by nour
