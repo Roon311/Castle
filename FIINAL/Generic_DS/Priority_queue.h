@@ -12,6 +12,7 @@ public:
 	int getSize() const;
 	void push(T& elemnt, int priority);
 	void pop(T& elemnt);
+	const T* toArray(int& count);
 	
 };
 //template class Priority_queue<Enemy>;
@@ -82,30 +83,30 @@ void Priority_queue<T>::pop(T& elemnt) {
 	}
 }
 
-//const T* Priority_queue<T>::toArray(int& count)
-//{
-//	count = 0;
-//
-//	if (front == nullptr)
-//		return nullptr;
-//
-//	P_Node<T>* p = front;
-//	while (p)
-//	{
-//		count++;
-//		p = p->getNext();
-//	}
-//
-//
-//	T* Arr = new T[count];
-//	p = front;
-//	for (int i = 0; i < count; i++)
-//	{
-//		Arr[i] = p->getItem();
-//		p = p->getNext();
-//	}
-//	return Arr;
-//}
+const T* Priority_queue<T>::toArray(int& count)
+{
+	count = 0;
+
+	if (!front)
+		return nullptr;
+	
+	P_Node<T>* p = front;
+	while (p)
+	{
+		count++;
+		p = p->getNext();
+	}
+
+	T* Arr = new T[count];
+	p = front;
+	for (int i = 0; i < count; i++)
+	{
+		Arr[i] = p->getItem();
+		p = p->getNext();
+	}
+	return Arr;
+
+	}
 
 
 
