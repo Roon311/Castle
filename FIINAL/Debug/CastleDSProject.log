@@ -16,5 +16,4 @@ C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Generic_DS\Stack.h(59): wa
 C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating Code...
 Battle.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-Battle.obj : error LNK2019: unresolved external symbol "public: __thiscall Priority_queue<class Fighter *>::Priority_queue<class Fighter *>(void)" (??0?$Priority_queue@PAVFighter@@@@QAE@XZ) referenced in function "public: __thiscall Battle::Battle(void)" (??0Battle@@QAE@XZ)
-.\Debug\CastleDSProject.exe : fatal error LNK1120: 1 unresolved externals
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Debug\CastleDSProject.exe
