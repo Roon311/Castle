@@ -15,7 +15,7 @@ public:
 	const T* toArray(int& count);
 	
 };
-//template class Priority_queue<Enemy>;
+
 
 template < typename T>
 Priority_queue<T>::Priority_queue() {
@@ -82,6 +82,7 @@ void Priority_queue<T>::pop(T& elemnt) {
 		--size;
 	}
 }
+template < typename T>
 
 const T* Priority_queue<T>::toArray(int& count)
 {
