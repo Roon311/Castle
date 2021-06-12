@@ -53,7 +53,16 @@ void Battle::DrawEnemies(GUI* pGUI)
 //---------------------------------------------------------------------------------------------//
 void Battle::Parsing()
 {
-	ifstream finput("text - Copy.txt");
+	string filename ="";
+	ifstream finput;
+	while (filename == "")
+	{
+		filename = OpenWindow("Choose the input text file: ");
+	}
+
+	finput.open(filename);
+
+	//ifstream finput("text - Copy.txt");
 	char* pch;
 	char* context = nullptr;
 	const int size = 300;
@@ -198,17 +207,21 @@ void Battle::Parsing()
 	}
 }
 
-//void Battle::Killing(Enemy* killed) //omar adding
-//{
-//}
-/*void Battle::Freezing(Enemy* Freezed) //omar adding
+
+string Battle::OpenWindow(const string& Message) 
 {
-	Q_froozen.enqueue(Freezed);
+	const int BUFSIZE = 512;
+	char buffer[BUFSIZE] = { 0 };
+	OPENFILENAME ofns = { 0 };
+	ofns.lStructSize = sizeof(ofns);
+	ofns.lpstrFile = buffer;
+	ofns.lpstrFilter = "Text Files\0*.txt\0";
+	ofns.nMaxFile = BUFSIZE;
+	ofns.lpstrTitle = Message.c_str();
+	GetOpenFileName(&ofns);
+	return buffer;
 }
-void Battle::UnFreezing(Enemy* UnFreezed) //omar adding
-{
-	Q_froozen.dequeue(UnFreezed);
-} */
+
 
 void Battle::AddtoDemoList(Enemy* Ptr)
 {

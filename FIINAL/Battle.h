@@ -63,12 +63,10 @@ public:
 	void RunSimulation();
 	void ActivateEnemies();		//check the inactive list and activate all enemies that has arrived
 	void Parsing();
-	//void Killing(Enemy* killed);
-	//void Freezing(Enemy* Freezed);
-	//void UnFreezing(Enemy* UnFreezed);
+	string Battle::OpenWindow(const string& Message); //Omar Adding
+
 	void Freezing2ActiveEnemies();
 	void AddtoDemoList(Enemy* Ptr);		//Add Enemy to the demo queue of enemies (for demo purposes only)
-	void Just_A_Demo();	//just to show a demo and should be removed in phase1 1 & 2
 
 	void AddtoBEnemiesForDraw(Enemy* Ptr);	//added by Nour
 	void UpdateEnemies();//added by Nour

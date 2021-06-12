@@ -1,12 +1,8 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  GUI.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\GUI\GUI.cpp(266,2): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   Battle.cpp
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(168,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(179,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(190,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(400,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(585,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(633,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Debug\CastleDSProject.exe
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(177,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(188,24): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(199,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(576,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(624,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Debug\CastleDSProject.exe
