@@ -19,7 +19,7 @@ protected:
 	double Health;	//Enemy health
 
 	double originalHealth; // omar adding
-	ENMY_TYPE TYPE; //omar adding
+	//ENMY_TYPE TYPE; //omar adding
 	int Power; //omar adding
 	int Reload_Period;//omar adding
 	int Speed;//omar adding
@@ -50,59 +50,14 @@ public:
 	int Get_Reload() const; //omar adding
 	void Set_Speed(int SPD); //omar adding
 	int Get_Speed() const; //omar adding
-	//void Set_Type(ENMY_TYPE TYPE); //omar adding
-	//ENMY_TYPE Get_Type() const; //omar adding
+	
 	double Get_Original_Health() const; //omar adding
 	void Set_Original_Health(double OH); //omar adding
 
 	// Virtual Functions: ----------------
 
-	virtual void Move()
-	{
-		/*if (TYPE == FREEZER || TYPE == FIGHTER) {
-			if (Health > 0.5 * originalHealth) {
-				if (Distance >= 2 + Speed) {
-					Distance = Distance - Speed;
-				}
-			}
-			else {
-				if (Distance >= 2 + Speed * 0.5) {
-					Distance = Distance - Speed * 0.5;
-				}
-			}
-		}
-		else if (TYPE == HEALER) {
-			if (Health > 0.5 * originalHealth) {
-				if (Distance > 2 + Speed) {
-					Distance = Distance - Speed;
-				}
-				if (Distance < 2 + Speed / 2)
-					Backward = true;
-				return;
-				if (Backward == true) {
-					Distance = Distance + Speed;
-				}
-				if (Distance > 60 - Speed)
-					Backward = false;
-				return;
-			}
-			else {
-				if (Distance > 2 + Speed / 2) {
-					Distance = Distance - Speed / 2;
-				}
-				if (Distance < 2 + Speed / 2)
-					Backward = true;
-				return;
-				if (Backward == true) {
-					Distance = Distance + Speed / 2;
-				}
-				if (Distance > 60 - Speed / 2)
-					Backward = false;
-				return;
-			}
-
-		}*/
-	}
+	virtual void Move() = 0;
+	
 	//All enemies can move
 	//virtual void Act() = 0;	//Acting means fighting or healing
 
@@ -111,3 +66,4 @@ public:
 	//
 
 };
+
