@@ -1,22 +1,21 @@
-#pragma once
 template <typename T>
 class P_Node
 {
 private:
 	T item; // A data item
-	int Priority;
+	double Priority;
 	P_Node<T>* next; // Pointer to next node
 public:
 	P_Node();
 	P_Node(const T& r_Item);	//passing by const ref.
-	P_Node(const T& r_Item ,int pri);
+	P_Node(const T& r_Item, double pri);
 	P_Node(const T& r_Item, P_Node<T>* nextNodePtr, int pri);
 	void setItem(const T& r_Item);
 	void setNext(P_Node<T>* nextNodePtr);
 	T getItem() const;
 	P_Node<T>* getNext() const;
-	void setPriority(int t);
-	int getPriority();
+	void setPriority(double t);
+	double getPriority();
 };// end Node; 
 
 template < typename T>
@@ -56,14 +55,14 @@ T P_Node<T>::getItem() const {
 
 template < typename T>
 
-void P_Node<T>:: setPriority(int t) {
+void P_Node<T>::setPriority(double t) {
 	Priority = t;
 }
 
 template < typename T>
 
 
-int P_Node<T>::getPriority() {
+double P_Node<T>::getPriority() {
 	return Priority;
 }
 template < typename T>
@@ -73,7 +72,7 @@ P_Node<T>* P_Node<T>::getNext() const {
 }
 template < typename T>
 
-P_Node<T>::P_Node(const T& r_Item, int pri) {
+P_Node<T>::P_Node(const T& r_Item, double pri) {
 	item = r_Item;
 	Priority = pri;
 }
