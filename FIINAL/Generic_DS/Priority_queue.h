@@ -5,15 +5,15 @@ template <typename T>
 class Priority_queue
 {
 	P_Node<T>* front;
-	int size;   
+	int size;
 public:
 	Priority_queue();
 	bool isEmpty() const;
 	int getSize() const;
-	void push(T& elemnt, int priority);
+	void push(T& elemnt, double priority);
 	void pop(T& elemnt);
 	const T* toArray(int& count);
-	
+
 };
 
 
@@ -40,26 +40,26 @@ int Priority_queue<T>::getSize() const {
 
 template < typename T>
 
-void Priority_queue<T>::push(T& elemnt, int pri) {
-	P_Node<T>* newNode = new P_Node<T>(elemnt ,pri);
-	
+void Priority_queue<T>::push(T& elemnt, double pri) {
+	P_Node<T>* newNode = new P_Node<T>(elemnt, pri);
+
 	if (front == nullptr) {
 
 		front = newNode;
 		newNode->setNext(nullptr);
 	}
 	else {
-		if (pri > front->getPriority()) {
+		if (pri >= front->getPriority()) {
 			P_Node<T>* save = front;
 			front = newNode;
 			newNode->setNext(save);
 		}
 		else {
 			P_Node<T>* current = front;
-			while ( current != nullptr  && current->getNext() != nullptr && pri < current->getNext()->getPriority()) {
+			while (current != nullptr && current->getNext() != nullptr && pri < current->getNext()->getPriority()) {
 				current = current->getNext();
 			}
-			
+
 			P_Node<T>* saveNext = current->getNext();
 			current->setNext(newNode);
 			newNode->setNext(saveNext);
@@ -90,7 +90,7 @@ const T* Priority_queue<T>::toArray(int& count)
 
 	if (!front)
 		return nullptr;
-	
+
 	P_Node<T>* p = front;
 	while (p)
 	{
@@ -107,7 +107,4 @@ const T* Priority_queue<T>::toArray(int& count)
 	}
 	return Arr;
 
-	}
-
-
-
+}
