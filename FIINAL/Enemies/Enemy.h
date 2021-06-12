@@ -23,7 +23,7 @@ protected:
 	int Power; //omar adding
 	int Reload_Period;//omar adding
 	int Speed;//omar adding
-	bool Backward;
+	
 	//
 	// TODO: Add More Data Members As Needed
 	//
@@ -50,8 +50,8 @@ public:
 	int Get_Reload() const; //omar adding
 	void Set_Speed(int SPD); //omar adding
 	int Get_Speed() const; //omar adding
-	void Set_Type(ENMY_TYPE TYPE); //omar adding
-	ENMY_TYPE Get_Type() const; //omar adding
+	//void Set_Type(ENMY_TYPE TYPE); //omar adding
+	//ENMY_TYPE Get_Type() const; //omar adding
 	double Get_Original_Health() const; //omar adding
 	void Set_Original_Health(double OH); //omar adding
 
@@ -59,7 +59,7 @@ public:
 
 	virtual void Move()
 	{
-		if (TYPE == FREEZER || TYPE == FIGHTER) {
+		/*if (TYPE == FREEZER || TYPE == FIGHTER) {
 			if (Health > 0.5 * originalHealth) {
 				if (Distance >= 2 + Speed) {
 					Distance = Distance - Speed;
@@ -101,7 +101,7 @@ public:
 				return;
 			}
 
-		}
+		}*/
 	}
 	//All enemies can move
 	//virtual void Act() = 0;	//Acting means fighting or healing

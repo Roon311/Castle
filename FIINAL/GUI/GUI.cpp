@@ -43,7 +43,10 @@ void GUI::waitForClick() const
 	int x, y;
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
-
+void GUI::FlushForClick() const
+{
+	pWind->FlushMouseQueue();	//Flush mouse click //added by Nour
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 string GUI::GetString() const
 {
@@ -317,19 +320,25 @@ void GUI::AddToDrawingList(const Enemy* pE)
 	pDitem->region = (GUI_REGION)(pE->GetStatus());	//map status to drawing region	
 	int eType = 0;
 	// IMPORTANT [TO DO]
-	if (pE->Get_Type() == FIGHTER)
+
+	Fighter const* Fi = dynamic_cast<const Fighter*>(pE);
+	Healer const* He = dynamic_cast<const Healer*>(pE);
+	Freezer const* Fr = dynamic_cast<const Freezer*>(pE);
+
+	/*Fighter const* Fi = static_cast<const Fighter*>(pE);
+	Healer const* He = static_cast<const Healer*>(pE);
+	Freezer const* Fr = static_cast<const Freezer*>(pE);*/
+
+	if (Fi !=NULL)
 	{
-		Fighter const* Fi = static_cast<const Fighter*>(pE);
 		eType = 0;
 	}
-	else if (pE->Get_Type() == HEALER)
+	else if (He != NULL)
 	{
-		Healer const* He = static_cast<const Healer*>(pE);
 		eType = 1;
 	}
-	else
+	else if (Fr != NULL)
 	{
-		Freezer const* Fr = static_cast<const Freezer*>(pE);
 		eType = 2;
 	}
 	// enemy type has been generated randomly here because enemy classes are not written yet

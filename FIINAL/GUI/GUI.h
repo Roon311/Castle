@@ -38,6 +38,7 @@ class GUI
 	};
 
 private:
+	window* pWind;//changed by Nour, returned private
 	color DrawingColors[ENMY_TYPE_CNT];	//drawing colors for enemies
 
 	color BackgroundClr, StatusBarClr;	//Background and status bar color
@@ -119,13 +120,13 @@ private:
 
 public:
 
-	window* pWind;//changed by Nour, made it public
+	
 	GUI();
 	~GUI();
 
 	// Input Functions  ---------------------------
 	void waitForClick() const;				// waits a user click from the user
-
+	void FlushForClick() const;
 	string GetString() const;				// reads a string (keyboard input) from the user
 	keytype GetPress() const;				//added by Nour
 

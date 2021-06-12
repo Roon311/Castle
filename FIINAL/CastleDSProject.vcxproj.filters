@@ -143,9 +143,6 @@
     <ClCompile Include="Fighter.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Priority_queue.cpp">
-      <Filter>Generic_DS</Filter>
-    </ClCompile>
     <ClCompile Include="Freezer.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
@@ -240,14 +237,17 @@
     <ClInclude Include="Fighter.h">
       <Filter>Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Priority_queue.h">
-      <Filter>Generic_DS</Filter>
-    </ClInclude>
     <ClInclude Include="Freezer.h">
       <Filter>Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Healer.h">
       <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Priority_queue.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="P_Node.h">
+      <Filter>Generic_DS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

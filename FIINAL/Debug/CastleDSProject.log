@@ -1,19 +1,12 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  GUI.cpp
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\GUI\GUI.cpp(266,2): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   Battle.cpp
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(167,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(179,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(191,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(382,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(535,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(584,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Battle.cpp(650,11): warning C4101: 'FIG_E': unreferenced local variable
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(168,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(179,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(190,26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(400,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(585,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Battle.cpp(633,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Generic_DS\Stack.h(84): warning C4715: 'Stack<Healer *>::Pop': not all control paths return a value
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Generic_DS\Stack.h(59): warning C4715: 'Stack<Healer *>::Push': not all control paths return a value
-  Compiling...
-  Demo_Main.cpp
-C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Enemies\Enemy.h(70,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-Battle.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Documents\GitHub\Castle\FIINAL\Debug\CastleDSProject.exe
+  CastleDSProject.vcxproj -> C:\Users\Omar El-Sakka\Desktop\Year2\Semster2\Data struct\Project phase 2\FIINAL\Debug\CastleDSProject.exe

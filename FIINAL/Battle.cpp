@@ -162,6 +162,7 @@ void Battle::setEnemyCount(int count)
 			 ENMY_TYPE TYP = static_cast<ENMY_TYPE>(TYP1);
 			 if (TYP == FIGHTER)
 			 {
+				 //Fighter* Fi = dynamic_cast<Fighter*>(pE);
 				 Fighter* fighter = new Fighter(ID, AT, MaxDistance);
 				 fighter->SetStatus(INAC);
 				 fighter->Set_Health(H);
@@ -169,7 +170,6 @@ void Battle::setEnemyCount(int count)
 				 fighter->Set_Power(POW);
 				 fighter->Set_Reload(RLD);
 				 fighter->Set_Speed(SPD);
-				 fighter->Set_Type(TYP);
 				 Q_Inactive.enqueue(fighter);
 			 }
 			 else if (TYP == HEALER)
@@ -181,7 +181,6 @@ void Battle::setEnemyCount(int count)
 				 healer->Set_Power(POW);
 				 healer->Set_Reload(RLD);
 				 healer->Set_Speed(SPD);
-				 healer->Set_Type(TYP);
 				 Q_Inactive.enqueue(healer);
 			 }
 			 else if (TYP == FREEZER)
@@ -193,7 +192,6 @@ void Battle::setEnemyCount(int count)
 				 freezer->Set_Power(POW);
 				 freezer->Set_Reload(RLD);
 				 freezer->Set_Speed(SPD);
-				 freezer->Set_Type(TYP);
 				 Q_Inactive.enqueue(freezer);
 			 }
 		 }
@@ -278,34 +276,36 @@ void Battle::RunSimulation()//starting the battle
 
 void Battle::InteractiveMode()//added by nour
 {
-	char c = NULL;
+	/*char c = NULL;
 	keytype key = pGUI->pWind->GetKeyPress(c);
-	key = pGUI->pWind->GetKeyPress(c);
+	key = pGUI->pWind->GetKeyPress(c);*/
 	//cout << "key" << key << endl;
 	//keytype key = pGUI->GetPress();
+	bool flag = false;
 	setCurrentTimetep(0);
+	KilledCount = 0;
 	pGUI->UpdateInterface(CurrentTimeStep);
-	while ((key != ESCAPE) && (getisModeSelected()==true))
-	{
-		pGUI->pWind->FlushMouseQueue();//Needed to change pWind to public because of flushing issues 
-		key = pGUI->pWind->GetKeyPress(c);
-		if (key != 4)
-		{
+	//while ((key != ESCAPE) && (getisModeSelected()==true))
+	//{
+		pGUI->FlushForClick();//Needed to change pWind to public because of flushing issues 
+	//	key = pGUI->pWind->GetKeyPress(c);
+	//	if (key != 4)
+		//{
 			
-			while (KilledCount < EnemyCount)	//as long as some enemies are alive (should be updated in next phases)
+			while (KilledCount<EnemyCount)	//as long as some enemies are alive (should be updated in next phases)//by Nour
 			{
 				
-				pGUI->waitForClick();	//check if click is inside the yellow box
-				CurrentTimeStep++;
-				pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
-				ActivateEnemies();
-				pGUI->UpdateInterface(CurrentTimeStep);
-				UpdateEnemies();	
-				pGUI->UpdateInterface(CurrentTimeStep);
+				pGUI->waitForClick();	//check if click is inside the yellow box//by Nour
+				CurrentTimeStep++;//by Nour
+				pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive//by Nour
+				ActivateEnemies();//by Nour
+				UpdateEnemies();//by Nour
+				//Freezing2ActiveEnemies();
+				pGUI->UpdateInterface(CurrentTimeStep);//by Nour
 				///////////Update Battle Info/////////////// by Rodina
 				pGUI->Set_Active_Healers(S_Healers.getSize());
 				pGUI->Set_Active_Freezers(Q_freezers.getSize());
-				//pGUI->Set_Active_Fighters(Q_fighters.getSize());
+				pGUI->Set_Active_Fighters(Q_fighters.getSize());
 
 
 				pGUI->Set_Frosted_Healers(Q_froozen_HL.getSize());
@@ -327,17 +327,35 @@ void Battle::InteractiveMode()//added by nour
 				AddAllListsToDrawingList();
 				pGUI->UpdateInterface(CurrentTimeStep);
 				
+				//kill 1 enemy added by Nour
+				if (S_Healers.getSize() != 0 && KilledCount!=1 && ActiveCount!=1 && flag==false)
+				{
+					Healer* killed=nullptr;
+					S_Healers.Pop(killed);
+					killed->SetStatus(KILD);//edited by Nour
+					L_Killed_Healers.enqueue(killed);
+					KilledCount++;
+
+				}
+				pGUI->ResetDrawingList();//by Nour
+				AddAllListsToDrawingList();//by Nour
+				pGUI->UpdateInterface(CurrentTimeStep);//by Nour
+				
+				//Freeze 2 enemies added by Nour
+				if (Q_freezers.getSize()>=2 && FrostedCount != 2 && CurrentTimeStep>4)
+				{
+					Freezer* freeze = nullptr;
+					Q_freezers.dequeue(freeze);
+					freeze->SetStatus(FRST);//edited by Nour
+					Q_froozen_FR.enqueue(freeze);
+					FrostedCount++;
+
+				}
+
 			}
-			Healer* killed;
-			S_Healers.Pop(killed);
-			L_Killed_Healers.enqueue(killed);
-			pGUI->ResetDrawingList();
-			AddAllListsToDrawingList();
-			pGUI->UpdateInterface(CurrentTimeStep);
-			//cout << "EnemyCount Exists and went to zero";
-		}
-	}
-//	cout << "We are out" << endl;// for debugging 
+			Sleep(5000);//by Nour for debugging
+
+
 
 }
 void Battle::SilentMode()//added by nour
@@ -346,21 +364,21 @@ void Battle::SilentMode()//added by nour
 }
 void Battle::StepMode()//added by nour
 {
-	char c = NULL;
-	keytype key = pGUI->pWind->GetKeyPress(c);
+	//char c = NULL;
+	//keytype key = pGUI->pWind->GetKeyPress(c);
 	CurrentTimeStep = 0;
-	while (key != 4)
-	{
-		key = pGUI->pWind->GetKeyPress(c);
+	//while (key != 4)
+	//{
+		//key = pGUI->pWind->GetKeyPress(c);
 		int x = 0;
 		int y = 0;
-		pGUI->pWind->WaitMouseClick(x, y);	//check if click is inside the yellow box
+		//pGUI->pWind->WaitMouseClick(x, y);	//check if click is inside the yellow box
 		pGUI->InDrawingArea(y);
 		CurrentTimeStep++;
 		Sleep(1000);
 		pGUI->UpdateInterface(CurrentTimeStep);	//upadte interface to show the initial case where all enemies are still inactive
 		cout << CurrentTimeStep << endl;
-	}
+	//}
 }
 //This is just a demo function for project introductory phase
 //It should be removed in phases 1&2
@@ -448,18 +466,22 @@ void Battle::AddAllListsToDrawingList()
 	int HealersCount;
 	Healer* const* HealersList = S_Healers.toArray(HealersCount);
 	for (int i = 0; i < HealersCount; i++)
+	{
 		pGUI->AddToDrawingList(HealersList[i]);
+		
+	}
 
-	/*int FighterCount;
+	int FighterCount;
 	Fighter* const* FighterList = Q_fighters.toArray(FighterCount);
 	for (int i = 0; i < FighterCount; i++)
-		pGUI->AddToDrawingList(FighterList[i]);*/
+		pGUI->AddToDrawingList(FighterList[i]);
 
 	int FreezersCount;
 	Freezer* const* FreezersList = Q_freezers.toArray(FreezersCount);
 	for (int i = 0; i < FreezersCount; i++)
+	{
 		pGUI->AddToDrawingList(FreezersList[i]);
-
+	}
 	int FrozenFighterCount;
 		Fighter* const* FrozenFighterList = Q_froozen_FT.toArray(FrozenFighterCount);
 	for (int i = 0; i < FrozenFighterCount; i++)
@@ -499,26 +521,54 @@ void Battle::ActivateEnemies()
 			return;
 		else if (pE->GetArrvTime() == CurrentTimeStep)
 		{
-			Q_Inactive.dequeue(pE);	//remove enemy from the queue
-			pE->SetStatus(ACTV);	//make status active
-			//pE->
-			if (pE->Get_Type() == 0)
+			ActiveCount++;
+			Q_Inactive.dequeue(pE);	      //remove enemy from the queue
+			ActiveForMove.enqueue(pE);
+			pE->SetStatus(ACTV);	     //make status active
+
+			Fighter* Fi = dynamic_cast<Fighter*>(pE);
+			Healer* He = dynamic_cast<Healer*>(pE);
+			Freezer* Fr = dynamic_cast<Freezer*>(pE);
+
+			/*Fighter* Fi = static_cast<Fighter*>(pE);
+			Healer* He = static_cast<Healer*>(pE);
+			Freezer* Fr = static_cast<Freezer*>(pE);*/
+
+			if (Fi != NULL)
 			{
+				Q_fighters.push(Fi, ActiveCount);
+				Fi->SetStatus(ACTV);
+			}
+			else if (He != NULL)
+			{
+				S_Healers.Push(He);
+				He->SetStatus(ACTV);
+			}
+			else if (Fr != NULL)
+			{
+				Q_freezers.enqueue(Fr);
+				Fr->SetStatus(ACTV);
+			}
+			/*if (pE->Get_Type() == 0)
+			{
+				
 				Fighter* Fi = static_cast<Fighter*>(pE);
-				//Q_fighters.push(Fi);
+				Q_fighters.push(Fi, ActiveCount);
+				Fi->SetStatus(ACTV);
 			}
 			else if (pE->Get_Type() == HEALER)
 			{
 				Healer* He = static_cast<Healer*>(pE);
 				S_Healers.Push(He);
-				pGUI->UpdateInterface(CurrentTimeStep);
+				He->SetStatus(ACTV);
 			}
 			else if (pE->Get_Type() == 2)
 			{
 				Freezer* Fr = static_cast<Freezer*>(pE);
 				Q_freezers.enqueue(Fr);
-				pGUI->UpdateInterface(CurrentTimeStep);
-			}
+				Fr->SetStatus(ACTV);
+				
+			}*/
 			
 		}
 	}
@@ -578,101 +628,97 @@ void Battle::Demo_UpdateEnemies()
 void Battle::UpdateEnemies()
 {
 	Enemy* pE;
-	int Prop;
 	//Freeze, activate, and kill propablities (for sake of demo)
 	int FreezProp = 5, ActvProp = 10, KillProp = 1;
 	srand(time(0));
-	for (int i = 0; i < EDrawCount; i++)
+	for (int i = 0; i < ActiveCount; i++)
 	{
 		Fighter* Fi=nullptr;
 		Healer* HE=nullptr;
 		Freezer* Fr=nullptr;
-		pE = BEnemiesForDraw[i];
-		if(pE->Get_Type()== FIGHTER)
-		 Fi = static_cast<Fighter*>(pE);
-		else if (pE->Get_Type() == HEALER)
-		 HE = static_cast<Healer*>(pE);
-		else if (pE->Get_Type() == FREEZER)
-		 Fr = static_cast<Freezer*>(pE);
-		
-
-		switch (pE->GetStatus())
+		//pE = BEnemiesForDraw[i];
+		if (ActiveCount != 0)
 		{
-		case ACTV:
-			if (Fi != nullptr)
-				Fi->Move();
-			else if (HE != nullptr)
-				HE->Move();
-			else if (Fr != nullptr)
-				Fr->Move();
-
-		
-			Prop = rand() % 100;
-			if (Prop < FreezProp)		//with Freeze propablity, change some active enemies to be frosted
+			ActiveForMove.dequeue(pE);
+			if (pE->GetStatus() == ACTV)
 			{
-				pE->SetStatus(FRST);
-				ActiveCount--;
-				FrostedCount++;
-			}
-			else	if (Prop < (FreezProp + KillProp))	//with kill propablity, kill some active enemies
-			{
-				pE->SetStatus(KILD);
-				ActiveCount--;
-				KilledCount++;
+				ActiveForMove.enqueue(pE);
 			}
 
-			break;
-		case FRST:
-			Prop = rand() % 100;
-			if (Prop < ActvProp)			//with activation propablity, change restore some frosted enemies to be active again
-			{
-				pE->SetStatus(ACTV);
-				ActiveCount++;
-				FrostedCount--;
-			}
+			/*if (pE->Get_Type() == FIGHTER)
+				Fi = static_cast<Fighter*>(pE);
+			else if (pE->Get_Type() == HEALER)
+				HE = static_cast<Healer*>(pE);
+			else if (pE->Get_Type() == FREEZER)
+				Fr = static_cast<Freezer*>(pE);*/
 
-			else	if (Prop < (ActvProp + KillProp))			//with kill propablity, kill some frosted enemies
-			{
-				pE->SetStatus(KILD);
-				FrostedCount--;
-				KilledCount++;
-			}
 
-			break;
+			/*Fighter* Fi = static_cast<Fighter*>(pE);
+			Healer* He = static_cast<Healer*>(pE);
+			Freezer* Fr = static_cast<Freezer*>(pE);*/
+
+
+			Fighter* Fi = dynamic_cast<Fighter*>(pE);
+			Healer* HE = dynamic_cast<Healer*>(pE);
+			Freezer* Fr = dynamic_cast<Freezer*>(pE);
+
+
+			if (pE->GetStatus() == ACTV)
+			{
+				if (Fi != nullptr)
+					Fi->Move();
+				else if (HE != nullptr)
+					HE->Move();
+				else if (Fr != nullptr)
+					Fr->Move();
+
+
+			}
 		}
 	}
 }
 
 void Battle::Freezing2ActiveEnemies() //by Rodina
 {
-	Freezer* F_E;
-	Healer* H_E;
-	Fighter* FIG_E;
+	Freezer* F_E = nullptr;
+	Healer* H_E = nullptr;
+	Fighter* FIG_E = nullptr;
 
-	if (Q_freezers.getSize() >= 2)
+	if (Q_freezers.getSize() > 2 && KilledCount < 2 && ActiveCount == 8)
 	{
 		Q_freezers.dequeue(F_E);
+		F_E->SetStatus(FRST);
 		Q_froozen_FR.enqueue(F_E);
+		FrostedCount++;
+
 		Q_freezers.dequeue(F_E);
+		F_E->SetStatus(FRST);
 		Q_froozen_FR.enqueue(F_E);
+		FrostedCount++;
 
 	}
-	if (S_Healers.getSize() >= 2)
+	if (S_Healers.getSize() > 2 && KilledCount < 3 && ActiveCount == 6)
 	{
 		S_Healers.Pop(H_E);
+		H_E->SetStatus(FRST);
 		Q_froozen_HL.enqueue(H_E);
+		FrostedCount++;
+
 		S_Healers.Pop(H_E);
+		H_E->SetStatus(FRST);
 		Q_froozen_HL.enqueue(H_E);
+		FrostedCount++;
+
 	}
-	/*if (Q_fighters.getSize() >= 2)
+	if (Q_fighters.getSize() >= 2)
 	{
 
-		Q_fighters.pop(FIG_E);
+		//Q_fighters.pop(FIG_E);
 		Q_froozen_FT.enqueue(FIG_E);
-		Q_fighters.pop(FIG_E);
+		//Q_fighters.pop(FIG_E);
 		Q_froozen_FT.enqueue(FIG_E);
 
-	}*/
+	}
 
 
 }

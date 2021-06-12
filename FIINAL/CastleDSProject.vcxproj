@@ -274,7 +274,6 @@
     <ClCompile Include="Freezer.cpp" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="Healer.cpp" />
-    <ClCompile Include="Priority_queue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Battle.h" />
@@ -310,6 +309,7 @@
     <ClInclude Include="Healer.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Priority_queue.h" />
+    <ClInclude Include="P_Node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

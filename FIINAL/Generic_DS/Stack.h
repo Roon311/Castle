@@ -50,12 +50,15 @@ bool  Stack<T>::Push(const T& newItem)
 	}
 	else
 	{
-		top->setNext(NewNodeptr);
+		NewNodeptr->setNext(top);
 		top = NewNodeptr;
 		size++;
-		return true;
 	}
-	
+
+
+	return true;
+
+
 }
 
 
@@ -75,12 +78,12 @@ bool  Stack<T>::Pop(T& TopItem)
 
 
 	if (DeletedNodeptr)
-	{
+
 		delete DeletedNodeptr;
-		size--;
-		return true;
-	}
-	
+	size--;
+	return true;
+
+
 }
 
 template <typename T>
@@ -134,5 +137,3 @@ Stack<T>::~Stack()
 
 
 #endif // !STACK_H
-
-

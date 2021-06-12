@@ -4,7 +4,6 @@
 #include "Castle\Castle.h"
 #include "Generic_DS\Queue.h"
 #include "Generic_DS\Stack.h"
-#include"Fighter.h"
 #include"Freezer.h"
 #include"Healer.h"
 #include"Fighter.h"
@@ -34,7 +33,7 @@ private:
 	Queue<Enemy*> Q_Inactive;		//Queue of inactive enemies
 	Stack<Healer*> S_Healers;
 	Queue<Freezer*> Q_freezers;
-	//Priority_queue<Fighter*> Q_fighters;   ///makes an error
+	Priority_queue<Fighter*> Q_fighters;   ///makes an error
 	Queue<Freezer*> Q_froozen_FR;
 	Queue<Fighter*> Q_froozen_FT;
 	Queue<Healer*> Q_froozen_HL;
@@ -42,6 +41,8 @@ private:
 	Queue<Fighter*> L_Killed_Fighters; //by Rodina   
 	Queue<Healer*> L_Killed_Healers;//by Rodina
 	Queue<Freezer*> L_Killed_Freezers;//by Rodina
+	////////////////////////
+	Queue<Enemy*>ActiveForMove;
 	/// ==> 
 	//	DEMO-related members. Should be removed in phases 1&2
 	//Queue for all enemies in the battle
@@ -62,9 +63,9 @@ public:
 	void RunSimulation();
 	void ActivateEnemies();		//check the inactive list and activate all enemies that has arrived
 	void Parsing();
-	void Killing(Enemy* killed);
-	void Freezing(Enemy* Freezed);
-	void UnFreezing(Enemy* UnFreezed);
+	//void Killing(Enemy* killed);
+	//void Freezing(Enemy* Freezed);
+	//void UnFreezing(Enemy* UnFreezed);
 	void Freezing2ActiveEnemies();
 	void AddtoDemoList(Enemy* Ptr);		//Add Enemy to the demo queue of enemies (for demo purposes only)
 	void Just_A_Demo();	//just to show a demo and should be removed in phase1 1 & 2

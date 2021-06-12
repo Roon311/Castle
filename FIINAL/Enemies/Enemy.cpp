@@ -115,14 +115,14 @@ int Enemy::Get_Speed() const
 {
 	return Speed;
 }
-void Enemy::Set_Type(ENMY_TYPE Type)
-{
-	TYPE = Type;
-}
-ENMY_TYPE Enemy::Get_Type() const
-{
-	return TYPE;
-}
+//void Enemy::Set_Type(ENMY_TYPE Type)
+//{
+//	TYPE = Type;
+//}
+//ENMY_TYPE Enemy::Get_Type() const
+//{
+//	return TYPE;
+//}
 void Enemy::Set_Original_Health(double OH)
 {
 	if (OH > 0)
