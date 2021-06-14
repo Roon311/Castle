@@ -1,3 +1,5 @@
+#pragma once
+
 template <typename T>
 class P_Node
 {
@@ -9,7 +11,7 @@ public:
 	P_Node();
 	P_Node(const T& r_Item);	//passing by const ref.
 	P_Node(const T& r_Item, double pri);
-	P_Node(const T& r_Item, P_Node<T>* nextNodePtr, int pri);
+	P_Node(const T& r_Item, P_Node<T>* nextNodePtr, double pri);
 	void setItem(const T& r_Item);
 	void setNext(P_Node<T>* nextNodePtr);
 	T getItem() const;
@@ -19,7 +21,7 @@ public:
 };// end Node; 
 
 template < typename T>
-P_Node<T>::P_Node(const T& r_Item, P_Node<T>* nextNodePtr, int pri)
+P_Node<T>::P_Node(const T& r_Item, P_Node<T>* nextNodePtr, double pri)
 {
 	item = r_Item;
 	next = nextNodePtr;
