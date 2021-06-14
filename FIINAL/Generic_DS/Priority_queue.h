@@ -13,9 +13,10 @@ public:
 	void push(T& elemnt, double priority);
 	void pop(T& elemnt);
 	const T* toArray(int& count);
+	void copyPrioQueue(Priority_queue<T>& p);
 
 };
-
+//template class Priority_queue<Enemy>;
 
 template < typename T>
 Priority_queue<T>::Priority_queue() {
@@ -108,3 +109,26 @@ const T* Priority_queue<T>::toArray(int& count)
 	return Arr;
 
 }
+
+template < typename T>
+
+void Priority_queue<T>::copyPrioQueue(Priority_queue<T>& p) {
+	Priority_queue<T>* temp = new  Priority_queue<T>();
+	T x;
+	double count = 1000;
+
+	while (isEmpty() != true) {
+		pop(x);
+		temp->push(x, count);
+		count--;
+	}
+	count = 1000;
+	while (temp->isEmpty() != true) {
+		temp->pop(x);
+		p.push(x, count);
+		push(x, count);
+		--count;
+	}
+	delete temp;
+}
+
